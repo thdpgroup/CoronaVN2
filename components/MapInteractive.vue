@@ -15,8 +15,8 @@
 <script>
 import { InfoControl, ReferenceChart, ChoroplethLayer } from 'vue-choropleth'
 
-import geojson  from '../assets/data/geo_vn.json'  // ./data/py-departments-geojson
-import paraguay from '../assets/data/geo_vn.json'  // './data/paraguay.json'
+import geojson  from '../assets/data/map_vn.json'
+import paraguay from '../assets/data/map_vn.json'
 import pyDepartmentsData from '../assets/data/provinces.json'
 import {LMap, LTileLayer} from 'vue2-leaflet';
 
@@ -36,13 +36,16 @@ export default {
       paraguay,
       colorScale: ["1a44db", "1a44db",  "f10f0f", "f10f0f"],
       value: {
-        key: "Case",
+        key: "case",
         metric: "Số người bị"
       },
       mapOptions: {
-        attributionControl: false
+        attributionControl: false,
+        interactive : true,
+        stroke : "f10f0f",
+        
       },
-      currentStrokeColor: '3d3213'
+      currentStrokeColor: 'cc0909'
     }
   }
 }
