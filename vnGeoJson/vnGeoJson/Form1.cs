@@ -1,4 +1,4 @@
-﻿using GeoJSON.Net.Converters;
+using GeoJSON.Net.Converters;
 using GeoJSON.Net.Feature;
 using Newtonsoft.Json;
 using System;
@@ -24,36 +24,24 @@ namespace vnGeoJson
     private void button1_Click(object sender, EventArgs e)
     {
       string dataJson = File.ReadAllText("./data/map_vn.geo.json");
-      var data2 = JsonConvert.DeserializeObject<GeoVn>(dataJson);
+      var geoPolygon = JsonConvert.DeserializeObject<GeoVn>(dataJson);
       int i = 0;
 
-      foreach (var feature in data2.features)
+      foreach (var feature in geoPolygon.features)
       {
         i++;
-        feature.properties.Id = i;
+        feature.properties.id = i;
       }
+      // using for conver to Multi Polygon
+      // ConvertToMultiPolygon(geoPolygon);
 
-      //---- convert to multi polygon
-      GeoVnPolygon geoMultiPolygon = new GeoVnPolygon()
-      {
-        type = data2.type,
-        features = new List<FeatureMultigon>()
-    };
-
-      foreach (var feature in data2.features)
-      {
-        geoMultiPolygon.features.Add(new FeatureMultigon() {
-          type = feature.type,
-          properties = feature.properties,
-          geometry = new GeometryMulti(feature.geometry.coordinates)
-        });
-      }
-
-      var dataSerialize = JsonConvert.SerializeObject(geoMultiPolygon);
+      var dataSerialize = JsonConvert.SerializeObject(geoPolygon);
       CreateJsonFile(dataSerialize, "geo_vn.json");
+
+      MessageBox.Show("NO error ! So, it done =)))) ");
     }
 
-    private static void CreateJsonFile(string dataSerialize,string fileName)
+    private static void CreateJsonFile(string dataSerialize, string fileName)
     {
       if (File.Exists(fileName))
       {
@@ -84,6 +72,32 @@ namespace vnGeoJson
 
       var dataSerialize = JsonConvert.SerializeObject(provinces);
       CreateJsonFile(dataSerialize, "provinces.json");
+
+      MessageBox.Show("NO error => DONE !!!  ");
+    }
+
+    private GeoMultiPolygon ConvertToMultiPolygon(GeoVn data)
+    {
+      //---- convert to multi polygon
+      GeoMultiPolygon geoMultiPolygon = new GeoMultiPolygon()
+      {
+        type = data.type,
+        features = new List<FeatureMultigon>()
+      };
+
+      foreach (var feature in data.features)
+      {
+        geoMultiPolygon.features.Add(new FeatureMultigon()
+        {
+          type = feature.type,
+          properties = feature.properties,
+          geometry = new GeometryMulti(feature.geometry.coordinates)
+        });
+      }
+
+      return geoMultiPolygon;
     }
   }
+
+
 }

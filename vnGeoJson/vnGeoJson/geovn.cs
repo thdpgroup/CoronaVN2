@@ -1,4 +1,5 @@
-﻿using System;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -59,7 +60,7 @@ namespace vnGeoJson
   }
 
 
-  public class GeoVnPolygon
+  public class GeoMultiPolygon
   {
     public string type { get; set; }
     public List<FeatureMultigon> features { get; set; }
@@ -70,12 +71,17 @@ namespace geovn
 {
   public class Properties
   {
+  
     public string country { get; set; }
     public string province { get; set; }
-    public int Id { get; set; }
+    public int id { get; set; }
 
+    [JsonProperty("case")]
     public int Case { get; set; }
 
-    public int color { get; set; }
+    public string color { get; set; } = "#bd8e38";
+
+    public string stroke { get; set; }
+    public string fill { get; set; } = "#bd8e38";
   }
 }
