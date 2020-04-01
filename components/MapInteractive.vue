@@ -8,8 +8,8 @@
         :strokeWidth="strokeWidth"
         :currentStrokeWidth="currentStrokeWidth">
         <template slot-scope="props">
-          <l-info-control :item="props.currentItem" :unit="props.unit" title="Department" placeholder="Hover over a department"/>
-          <l-reference-chart title="Girls school enrolment" :colorScale="colorScale" position="topright"/>
+          <l-info-control :item="props.currentItem" :unit="props.unit" title="Số ca nhiễm"/>
+          
         </template>
       </l-choropleth-layer>
       <l-tile-layer :url="url"></l-tile-layer>
