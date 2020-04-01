@@ -40,10 +40,7 @@ export default {
         metric: "Số người bị"
       },
       mapOptions: {
-        attributionControl: false,
-        interactive : true,
-        stroke : "f10f0f",
-        
+        attributionControl: false        
       },
       currentStrokeColor: 'cc0909'
     }
