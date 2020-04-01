@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <l-map :center="[16.109,102.797]" :zoom="6" style="height: 500px;" :options="mapOptions">
-      <l-choropleth-layer :data="pyDepartmentsData" titleKey="name" idKey="id" :value="value" geojsonIdKey="id" :geojson="paraguay" :colorScale="colorScale">
+      <l-choropleth-layer :data="pyDepartmentsData" titleKey="name" idKey="id" :value="value" geojsonIdKey="id" :geojson="paraguay" 
+        :colorScale="colorScale" 
+        :strokeColor="strokeColor" 
+        :currentStrokeColor="currentStrokeColor"
+        :strokeWidth="strokeWidth"
+        :currentStrokeWidth="currentStrokeWidth">
         <template slot-scope="props">
           <l-info-control :item="props.currentItem" :unit="props.unit" title="Department" placeholder="Hover over a department"/>
           <l-reference-chart title="Girls school enrolment" :colorScale="colorScale" position="topright"/>
@@ -34,15 +39,15 @@ export default {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       pyDepartmentsData,
       paraguay,
-      colorScale: ["1a44db", "1a44db",  "f10f0f", "f10f0f"],
+      colorScale: ["fd7e14", "1a44db",  "f10f0f", "f10f0f"],
       value: {
         key: "case",
         metric: "Số người bị"
       },
-      mapOptions: {
-        attributionControl: false        
-      },
-      currentStrokeColor: 'cc0909'
+      strokeColor: "fff",
+      currentStrokeColor: 'cc0909',
+      strokeWidth: 0.5, 
+      currentStrokeWidth : 0.8
     }
   }
 }
