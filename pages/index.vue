@@ -1,18 +1,6 @@
 <template>
-  <div class="container">
-    <div>
-      <map-interactive />
-      <h1 class="title">
-        CoronaVN2
-      </h1>
-      <h2 class="subtitle">
-        Interactive Vietnam Map
-      </h2>
-
-      <div>
-
-      </div>
-    </div>
+  <div>
+    <map-interactive />
   </div>
 </template>
 

@@ -120,7 +120,7 @@ export default {
           layer.on({
             mouseover: mouseover.bind(this),
             mouseout: mouseout.bind(this),
-            click: () => { this.$emit('clickMap', {feature, layer}) }
+            click: () => { this.$emit('clickMap', {feature}) }
           })
         }
       }
