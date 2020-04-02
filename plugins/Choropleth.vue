@@ -99,7 +99,7 @@ export default {
               weight: this.strokeWidth
             }
           }
-          let colorIndex = Number(item[this.value.key])
+          let colorIndex = Number(item[this.value.keyColor])
           if (!validNumber(colorIndex)) {
             return {
               color: "white",

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <l-map :center="center" :zoom="6" style="height: 500px;" @click="updateLatLng">
-      <l-choropleth-layer :data="pyDepartmentsData" titleKey="name" idKey="id" :value="value" geojsonIdKey="id" :geojson="paraguay" 
+      <l-choropleth-layer :data="provinces" titleKey="name" idKey="id" :value="value" geojsonIdKey="id" :geojson="map_vn" 
         :colorScale="colorScale" 
         :strokeColor="strokeColor" 
         :currentStrokeColor="currentStrokeColor"
@@ -15,11 +15,12 @@
         </template>
       </l-choropleth-layer>
       <l-tile-layer :url="url" :attribution="tileOptions.attribution" :noWrap="true"></l-tile-layer>
+
       <l-circle
-      :lat-lng="circle.center"
-      :radius="circle.radius"
-      :color="circle.color"
-      @click="openPopUp(circle.center, 'circle')"
+        :lat-lng="circle.center"
+        :radius="circle.radius"
+        :color="circle.color"
+        @click="openPopUp(circle.center, 'circle')"
       />
     </l-map>
     <div class="card bg-light" v-if="checkedContent">
@@ -35,8 +36,8 @@ import { InfoControl, ReferenceChart } from 'vue-choropleth'
 import ChoroplethLayer from '../plugins/Choropleth'
 
 import geojson  from '../assets/data/map_vn.json'
-import paraguay from '../assets/data/map_vn.json'
-import pyDepartmentsData from '../assets/data/provinces.json'
+import map_vn from '../assets/data/map_vn.json'
+import provinces from '../assets/data/provinces.json'
 import {LMap, LTileLayer, LPopup, LCircle, LMarker} from 'vue2-leaflet';
 
 export default {
@@ -54,11 +55,12 @@ export default {
 
     return {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      pyDepartmentsData,
-      paraguay,
+      provinces,
+      map_vn,
       colorScale: ["fd7e14", "f10f0f", "ffffff"],
       value: {
-        key: "color",
+        key: "case",
+        keyColor: "color",
         metric: " người bị"
       },
       tileOptions: {
