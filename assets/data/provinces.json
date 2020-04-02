@@ -1,5 +1,5 @@
 [
-  { "name": "An Giang", "id": 1, "case": 10, "color": 0 },
+  { "name": "An Giang", "id": 1, "case": 10, "color": 1 },
   { "name": "Bạc Liêu", "id": 2, "case": 10, "color": 0 },
   { "name": "Bắc Giang", "id": 3, "case": 10, "color": 0 },
   { "name": "Bắc Kạn", "id": 4, "case": 0, "color": 0 },

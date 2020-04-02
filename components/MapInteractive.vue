@@ -2,6 +2,8 @@
   <div id="app">
     <l-map :center="center" :zoom="6" style="height: 500px;" @click="updateLatLng">
       <l-choropleth-layer :data="pyDepartmentsData" titleKey="name" idKey="id" :value="value" geojsonIdKey="id" :geojson="paraguay" 
+        :min = "min"
+        :max = "max"
         :colorScale="colorScale" 
         :strokeColor="strokeColor" 
         :currentStrokeColor="currentStrokeColor"
@@ -56,14 +58,16 @@ export default {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       pyDepartmentsData,
       paraguay,
-      colorScale: ["fd7e14", "1a44db",  "f10f0f", "f10f0f"],
+      colorScale: ["fd7e14", "f10f0f"],
       value: {
         key: "case",
-        metric: "Số người bị"
+        metric: " người bị"
       },
       tileOptions: {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       },
+      min: 0,
+      max: 1,
       strokeColor: "fff",
       currentStrokeColor: 'cc0909',
       strokeWidth: 0.5, 

@@ -7,7 +7,16 @@
 <script>
 
 import {LGeoJson} from "vue2-leaflet"
-import { getMin, getMax, normalizeValue, getColor, validNumber } from "vue-choropleth/src/util"
+import { getMin, getMax, normalizeValue, validNumber } from "vue-choropleth/src/util"
+
+function getColor(valueParam, colorScale, min, max) {
+  if(colorScale.length == 0) return "#fff";
+
+  if(valueParam > max) {
+    return '#' + colorScale[colorScale.length-1];
+  }
+  return '#' + colorScale[0];
+}
 
 function mouseover({ target }) {
   target.setStyle({
@@ -65,6 +74,8 @@ export default {
     geojsonIdKey: String,
     mapStyle: Object,
     zoom: Number,
+    min: Number,
+    max: Number,
     mapOptions: Object,
     strokeColor: {type: String, default: 'fff'},
     currentStrokeColor: {type: String, default:'666'},
@@ -98,6 +109,7 @@ export default {
               weight: this.strokeWidth
             }
           }
+
           const { min, max } = this
 
           return {
@@ -106,7 +118,7 @@ export default {
             color: `#${this.strokeColor}`,
             dashArray: "3",
             fillOpacity: 0.7,
-            fillColor: getColor(valueParam, this.colorScale, min, max)
+            fillColor: getColor(valueParam, this.colorScale, this.min, this.max)
           }
         },
         onEachFeature: (feature, layer) => {
@@ -120,12 +132,7 @@ export default {
     }
   },
   computed: {
-    min() {
-      return getMin(this.geojsonData.data, this.value.key)
-    },
-    max() {
-      return getMax(this.geojsonData.data, this.value.key)
-    },
+    
     geojsonData() {
       return {geojson: {...this.geojson}, data: this.data};
     }
@@ -134,6 +141,7 @@ export default {
     LGeoJson
   },
   methods: {
+    
     deferredMountedTo(parent) {
       this.parent = parent
       for (var i = 0; i < this.$children.length; i++) {
