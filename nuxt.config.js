@@ -27,7 +27,10 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    {src: './node_modules/vue2-leaflet/dist/vue2-leaflet.min.js', ssr: false },
+    {src: './node_modules/leaflet/dist/leaflet.js', ssr: false },
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -45,7 +48,8 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    "nuxt-leaflet"
   ],
   /*
    ** Axios module configuration
