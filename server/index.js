@@ -33,10 +33,12 @@ async function start() {
     message: `Server listening on http://${host}:${port}`,
     badge: true
   })
-  var minutes = 0.1, the_interval = minutes * 60 * 1000;
+
+
+  var minutes = 5, the_interval = minutes * 60 * 1000;
   setInterval(function() {
-    console.log("Collect data after 1");
-    city.create();
+    console.log("Collect data after 5 minute");
+    coronadata.create();
   }, the_interval);
   
 }

@@ -1,62 +1,61 @@
 const fs = require('fs');
-const http = require('http');
-var options = {
-    host: 'www.google.com',
-    port: 80,
-    path: '/index.html'
-  };
-  
-  
-const collectingData= function(){
-    http.get(options, function(res) {
-        res.on('data', function (chunk) {
-            var str=chunk.toString();
-            console.log(str);
-            
-        });  
-      }).on('error', function(e) {
-        console.log("Got error: " + e.message);
-      });
-}
-const create =  function() {
-    collectingData();
-    fs.exists('./data/City.json', function(exists) {
+const axios = require('axios');
+const urlGetData = 'https://www.parsehub.com/api/v2/runs/tuhDjc8x7rQ7/data?api_key=t-_9R5KZG9aM';
+var cities={};
+var cityJsonPath ='./data/city.json';
+
+const getExistingData = function(){
+    fs.exists(cityJsonPath, function(exists) {
         if(exists){
-            fs.readFile('./data/City.json', 'utf8', function readFileCallback(err, data){
+            fs.readFile(cityJsonPath, 'utf8', function readFileCallback(err, data){
                 if (err){
                     console.log("error");
                     console.log(err);
                 } else {
-                console.log(data);
+               
                 var content = data;
-                var obj = JSON.parse(content);
-                obj.data.push({
-                    "cityId": "28",
-                    "city": "hahahahah",
-                    "activeCase": "12",
-                    "recovered": "72"
-                });
-                json = JSON.stringify(obj); //convert it back to json
-                fs.writeFile('./data/City.json', json, 'utf8', function(err,result){
-                    if(err) console.log('error', err);
-                }); // write it back 
+                cities = JSON.parse(content);
+                return cities;
             }});
         }
-        else{
-           var obj={data:[]};
-           obj.data.push({
-                "cityId": "01",
-                "city": "Ho Chi Minh",
-                "activeCase": "12",
-                "recovered": "72"
-            });
-            json = JSON.stringify(obj); //convert it back to json
-            fs.writeFile('./data/City.json', json, 'utf8', function(err,result){
-                if(err) console.log('error', err);
-            }); // write it back 
-        }
-    
-  });
+    })
+}
+const create =  function() {
+    axios.get(urlGetData,{headers: {'Content-Type': 'application/json'}}).then(response => {
+        
+        fs.exists(cityJsonPath, function(exists) {
+            if(exists){
+                fs.readFile(cityJsonPath, 'utf8', function readFileCallback(err, data){
+                    if (err){ console.log(err);
+                    } else {
+                    var content = data;
+                    var obj = JSON.parse(content);
+                    response.data.date.forEach(city => {
+                        obj.data.push(city);
+                    });
+                    
+                    json = JSON.stringify(obj); //convert it back to json
+                    fs.writeFile(cityJsonPath, json, 'utf8', function(err,result){
+                        if(err) console.log('error', err);
+                    }); // write it back 
+                }});
+            }
+            else{
+                var obj={data:[]};
+                response.data.date.forEach(city => {
+                    obj.data.push(city);
+                });
+                json = JSON.stringify(obj); //convert it back to json
+                fs.writeFile(cityJsonPath, json, 'utf8', function(err,result){
+                    if(err) console.log('error', err);
+                }); 
+            }
+        
+      });
+    })
+    .catch(error => {
+      console.log(error);
+    });
 }
 module.exports.create = create;
   
