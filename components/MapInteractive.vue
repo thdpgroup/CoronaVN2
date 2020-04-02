@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <l-map :center="center" :zoom="6" style="height: 500px;" @click="updateLatLng">
+    <l-map ref="mapRef" @ready="mapReady" :center="center" :zoom="6" style="height: 500px;" @click="updateLatLng">
       <l-choropleth-layer :data="provinces" titleKey="name" idKey="id" :value="value" geojsonIdKey="id" :geojson="map_vn" 
         :colorScale="colorScale" 
         :strokeColor="strokeColor" 
@@ -9,19 +9,21 @@
         :currentStrokeWidth="currentStrokeWidth" @clickMap="clickLayer">
         <template slot-scope="props">
           <l-info-control :item="props.currentItem" :unit="props.unit" title="Số ca nhiễm"/>
-          <l-marker :lat-lng="popupLatLng" :visible="false">
-            <l-popup keepInView="true">hi</l-popup>
-          </l-marker>
+          <l-circle-marker
+            ref="marker"
+            :lat-lng="popupLatLng"
+            :radius="markerOption.radius"
+            :color="markerOption.color"
+            :fillOpacity = "markerOption.opacity"
+            :opacity = "markerOption.opacity"
+            :weight = "markerOption.weight"
+          >
+            <l-popup ref="popup" keepInView="true">hi</l-popup> 
+          </l-circle-marker>
         </template>
       </l-choropleth-layer>
       <l-tile-layer :url="url" :attribution="tileOptions.attribution" :noWrap="true"></l-tile-layer>
 
-      <l-circle
-        :lat-lng="circle.center"
-        :radius="circle.radius"
-        :color="circle.color"
-        @click="openPopUp(circle.center, 'circle')"
-      />
     </l-map>
     <div class="card bg-light" v-if="checkedContent">
       <h5 class="card-title" v-html="checkedContent.feature.properties.province"></h5>
@@ -70,10 +72,11 @@ export default {
       currentStrokeColor: 'cc0909',
       strokeWidth: 0.5, 
       currentStrokeWidth : 0.8,
-      circle: {
-        center: [10.667,106.875],
-        radius: 4500,
-        color: 'red'
+      markerOption: {
+        radius: 0.1,
+        opacity: 0.5,
+        color	: '#007bff',
+        weight: 1
       },
       checkedContent: null,
       center: [16.109,102.797]
@@ -86,12 +89,17 @@ export default {
   },
 
   methods: {
+    mapReady(data) {
+      this.$refs.marker.setVisible(false);
+    },
     openPopUp (latLng, caller) {
-      console.log('hi');
+      this.$refs.marker.setVisible(true);
+      this.$refs.popup.setContent("set new content !");
+      this.$refs.marker.mapObject.openPopup();
     },
     clickLayer(data) {
       this.checkedContent = data
-      this.openPopUp(this.circle.center, 'circle')
+      this.openPopUp(this.center, 'circle')
     },
     updateLatLng(data) {
       this.center= [data.latlng.lat, data.latlng.lng]
