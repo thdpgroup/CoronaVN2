@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
     <l-map ref="mapRef" @ready="mapReady" :center="center" :zoom="6" style="height: 500px;" @click="updateLatLng">
       <l-choropleth-layer :data="provinces" titleKey="name" idKey="id" :value="value" geojsonIdKey="id" :geojson="map_vn" 
         :colorScale="colorScale" 
@@ -18,17 +18,23 @@
             :opacity = "markerOption.opacity"
             :weight = "markerOption.weight"
           >
-            <l-popup ref="popup" keepInView="true">hi</l-popup> 
+            <l-popup ref="popup" keepInView="true"></l-popup> 
           </l-circle-marker>
         </template>
       </l-choropleth-layer>
       <l-tile-layer :url="url" :attribution="tileOptions.attribution" :noWrap="true"></l-tile-layer>
 
     </l-map>
-    <div class="card bg-light" v-if="checkedContent">
-      <h5 class="card-title" v-html="checkedContent.feature.properties.province"></h5>
-      <p class="card-text">Số ca nhiễm: {{checkedContent.feature.properties.case}}</p>
-      <p class="card-text">Bệnh nhân thứ n đi từ anh đã bị cách ly tại</p>
+    <div class="card p-3" v-if="checkedContent">
+      <h2 class="card-title" v-html="checkedContent.name" v-if="checkedContent.name"></h2>
+      <h3 v-if="String(checkedContent.newCase)&&String(checkedContent.recoveredCase)&&checkedContent.date">Số ca nhiễm mới: {{checkedContent.newCase}}, bình phục: {{checkedContent.recoveredCase}} (04/02/2020)</h3>
+			<ul class="timeline mt-4" v-if="checkedContent.patients">
+				<li v-for="patient in checkedContent.patients" :key="patient.id" :id="patient.id">
+					<p v-html="patient.report" class="d-inline"></p>
+          <a class="text-warning" :href="patient.url" :target="patient.isExternalLink&&'_blank'" v-if="patient.isSeeMore">Xem thêm</a>
+          
+				</li>
+			</ul>
     </div>
   </div>
 </template>
@@ -37,7 +43,6 @@
 import { InfoControl, ReferenceChart } from 'vue-choropleth'
 import ChoroplethLayer from '../plugins/Choropleth'
 
-import geojson  from '../assets/data/map_vn.json'
 import map_vn from '../assets/data/map_vn.json'
 import provinces from '../assets/data/provinces.json'
 import {LMap, LTileLayer, LPopup, LCircle, LMarker} from 'vue2-leaflet';
@@ -93,16 +98,22 @@ export default {
       this.$refs.marker.setVisible(false);
     },
     openPopUp (latLng, caller) {
+      const totalCase = `Tổng số ca: <span class="text-danger font-weight-bold">${this.checkedContent.totalCase||''}</span>`
+
+      const revoceredCase = `,số ca hồi phục: <span class="text-warning font-weight-bold">${this.checkedContent.revoceredCase||''}</span>`
+
+      const deadCase = this.checkedContent.deadCase?`,chết: <span class="text-info font-weight-bold">${this.checkedContent.deadCase}</span>`:''
+
       this.$refs.marker.setVisible(true);
-      this.$refs.popup.setContent("set new content !");
+      this.$refs.popup.setContent(`${totalCase} ${revoceredCase} ${deadCase}`);
       this.$refs.marker.mapObject.openPopup();
     },
     clickLayer(data) {
-      this.checkedContent = data
+      this.checkedContent = provinces.find(province => province.id === data.feature.properties.id)
       this.openPopUp(this.center, 'circle')
     },
     updateLatLng(data) {
-      this.center= [data.latlng.lat, data.latlng.lng]
+      this.center = [data.latlng.lat, data.latlng.lng]
     }
   }
 
@@ -110,13 +121,34 @@ export default {
 </script>
 <style>
 @import "../node_modules/leaflet/dist/leaflet.css";
-body {
-  background-color: #e7d090;
-  margin-left: 100px;
-  margin-right: 100px;
+.timeline {
+    list-style-type: none;
+    position: relative;
 }
-
-#map {
-  background-color: #eee;
+.timeline:before {
+    content: ' ';
+    background: #d4d9df;
+    display: inline-block;
+    position: absolute;
+    left: 29px;
+    width: 2px;
+    height: 100%;
+    z-index: 400;
+}
+.timeline > li {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+.timeline > li:before {
+    content: ' ';
+    background: white;
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid #22c0e8;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    z-index: 400;
 }
 </style>
