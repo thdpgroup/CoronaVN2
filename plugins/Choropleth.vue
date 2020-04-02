@@ -1,7 +1,7 @@
 <template>
   <div>
     <l-geo-json :geojson="geojsonData.geojson" :options="geojsonOptions" ref="geolayer"></l-geo-json>
-    <slot :currentItem="currentItem" :unit="value.metric" :min="min" :max="max"></slot>
+    <slot :currentItem="currentItem" :unit="value.metric" ></slot>
   </div>
 </template>
 <script>
@@ -9,13 +9,12 @@
 import {LGeoJson} from "vue2-leaflet"
 import { getMin, getMax, normalizeValue, validNumber } from "vue-choropleth/src/util"
 
-function getColor(valueParam, colorScale, min, max) {
-  if(colorScale.length == 0) return "#fff";
+function getColor(colorIndex, colorScale) {
 
-  if(valueParam >= max) {
-    return '#' + colorScale[colorScale.length-1];
-  }
-  return '#' + colorScale[0];
+  if(colorScale.length == 0 || colorIndex > colorScale.length )
+    return "#fff";
+
+  return '#' + colorScale[colorIndex];
 }
 
 function mouseover({ target }) {
@@ -74,8 +73,6 @@ export default {
     geojsonIdKey: String,
     mapStyle: Object,
     zoom: Number,
-    min: Number,
-    max: Number,
     mapOptions: Object,
     strokeColor: {type: String, default: 'fff'},
     currentStrokeColor: {type: String, default:'666'},
@@ -102,15 +99,13 @@ export default {
               weight: this.strokeWidth
             }
           }
-          let valueParam = Number(item[this.value.key])
-          if (!validNumber(valueParam)) {
+          let colorIndex = Number(item[this.value.key])
+          if (!validNumber(colorIndex)) {
             return {
               color: "white",
               weight: this.strokeWidth
             }
           }
-
-          const { min, max } = this
 
           return {
             weight: this.strokeWidth,
@@ -118,7 +113,7 @@ export default {
             color: `#${this.strokeColor}`,
             dashArray: "3",
             fillOpacity: 0.7,
-            fillColor: getColor(valueParam, this.colorScale, this.min, this.max)
+            fillColor: getColor(colorIndex, this.colorScale)
           }
         },
         onEachFeature: (feature, layer) => {
