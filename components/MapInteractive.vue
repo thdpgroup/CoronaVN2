@@ -60,7 +60,7 @@ export default {
       paraguay,
       colorScale: ["fd7e14", "f10f0f"],
       value: {
-        key: "case",
+        key: "color",
         metric: " người bị"
       },
       tileOptions: {

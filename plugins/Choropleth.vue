@@ -12,7 +12,7 @@ import { getMin, getMax, normalizeValue, validNumber } from "vue-choropleth/src/
 function getColor(valueParam, colorScale, min, max) {
   if(colorScale.length == 0) return "#fff";
 
-  if(valueParam > max) {
+  if(valueParam >= max) {
     return '#' + colorScale[colorScale.length-1];
   }
   return '#' + colorScale[0];
