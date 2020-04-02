@@ -3,9 +3,13 @@ const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 const app = express()
 
+
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'
+
+const city = require('./node/api/city');
+const coronadata = require('./node/api/coronadata');
 
 async function start() {
   // Init Nuxt.js
@@ -29,5 +33,11 @@ async function start() {
     message: `Server listening on http://${host}:${port}`,
     badge: true
   })
+  var minutes = 0.1, the_interval = minutes * 60 * 1000;
+  setInterval(function() {
+    console.log("Collect data after 1");
+    city.create();
+  }, the_interval);
+  
 }
 start()
