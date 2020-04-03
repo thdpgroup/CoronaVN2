@@ -75,6 +75,7 @@ const getProvinces = function(){
         }
   });
 }
+module.exports.getProvinces = getProvinces;  
 
 var GetData = {
     getProvinces() {
@@ -92,5 +93,6 @@ var GetData = {
       });
     }
 }
-module.exports.GetData = GetData;  
+module.exports.GetData = GetData; 
+
 

@@ -56,11 +56,13 @@ module.exports = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
-  fs:{},
   /*
    ** Build configuration
    */
   build: {
     
-  }
+  },
+  serverMiddleware: [
+    '~/server/node/api.index.js'
+  ]
 }

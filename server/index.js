@@ -11,6 +11,9 @@ config.dev = process.env.NODE_ENV !== 'production'
 const city = require('./node/api/city');
 const coronadata = require('./node/api/coronadata');
 
+const routes = require('../routes');
+
+
 async function start() {
   // Init Nuxt.js
   const nuxt = new Nuxt(config)
@@ -27,6 +30,9 @@ async function start() {
   // Give nuxt middleware to express
   app.use(nuxt.render)
 
+  app.use(routes);
+  
+  
   // Listen the server
   app.listen(port, host)
   consola.ready({
@@ -40,7 +46,12 @@ async function start() {
     console.log("Collect data after 5 minute");
     coronadata.create();
   }, the_interval);
-  
-  city.GetData.getProvinces();
+
+  module.exports = {
+    path: '/api',
+    handler: app
+  }
+  //city.getProvinces();
 }
+
 start()

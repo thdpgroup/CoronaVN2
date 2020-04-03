@@ -22,7 +22,6 @@
     "bootstrap-vue": "^2.0.0",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
-    "fs": "0.0.1-security",
     "leaflet": "^1.6.0",
     "nuxt": "^2.0.0",
     "nuxt-leaflet": "0.0.21",
