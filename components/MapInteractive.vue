@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-    <l-map ref="mapRef" @ready="mapReady" :center="center" :zoom="6" style="height: 500px;" @click="updateLatLng">
+    <l-map @ready="mapReady" :center="center" :zoom="6" style="height: 500px;" @click="updateLatLng" class="map">
       <l-choropleth-layer :data="provinces" titleKey="name" idKey="id" :value="value" geojsonIdKey="id" :geojson="map_vn" 
         :colorScale="colorScale" 
         :strokeColor="strokeColor" 
@@ -25,11 +25,11 @@
       <l-tile-layer :url="url" :attribution="tileOptions.attribution" :noWrap="true"></l-tile-layer>
 
     </l-map>
-    <div class="card p-3 bg-dark" v-if="currentProvince">
+    <div class="card p-3 bg-dark province" v-if="currentProvince">
       <h2 class="card-title" v-html="currentProvince.name" v-if="currentProvince.name"></h2>
       <h3 v-if="String(currentProvince.new)&&String(currentProvince.recovered)&&currentProvince.date">Số ca nhiễm mới: {{currentProvince.new}}, bình phục: {{checkedContent.recovered}} (04/02/2020)</h3>
 			<ul class="timeline mt-4" v-if="currentTimeline">
-				<li v-for="timeline in currentTimeline.patients" :key="timeline.id" :id="timeline.id">
+				<li v-for="timeline in currentTimeline.patients" :key="timeline.id" :id="timeline.id" class="timeline--item">
 					<p v-html="timeline.report" class="d-inline"></p>
           <a class="text-warning" :href="timeline.url" :target="timeline.isExternalLink&&'_blank'" v-if="timeline.isSeeMore">Xem thêm</a>
 				</li>
@@ -124,9 +124,17 @@ export default {
 </script>
 <style>
 @import "../node_modules/leaflet/dist/leaflet.css";
+.province {
+  margin-top: 50px;
+  box-shadow: 0 5px 10px 4px rgba(253, 200, 10, .4);
+  color: #fff;
+}
+.map {
+  box-shadow: 0 5px 10px 4px rgba(253, 200, 10, .4)
+}
 .timeline {
-    list-style-type: none;
-    position: relative;
+  list-style-type: none;
+  position: relative;
 }
 .timeline:before {
     content: ' ';
@@ -139,8 +147,7 @@ export default {
     z-index: 400;
 }
 .timeline > li {
-    margin: 20px 0;
-    padding-left: 20px;
+    margin: 20px 0 20px 20px;
 }
 .timeline > li:before {
     content: ' ';
@@ -149,9 +156,35 @@ export default {
     position: absolute;
     border-radius: 50%;
     border: 3px solid #22c0e8;
-    left: 20px;
+    left: -40px;
     width: 20px;
     height: 20px;
     z-index: 400;
+}
+.timeline > li:after {
+    content: ' ';
+    display: inline-block;
+    position: absolute;
+    border-left: 10px solid #333232;
+    border-top: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #333232;
+    top: 12px;
+    left: -10px;
+    transform: rotate(45deg);
+    width: 20px;
+    height: 20px;
+    z-index: 400;
+}
+.timeline--item {
+  background: #333232;
+  padding: 10px;
+  position: relative;
+}
+.timeline--date {
+  font-size: 20px;
+  padding: 5px 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgb(255, 255, 255, .5);
 }
 </style>

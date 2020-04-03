@@ -1,12 +1,12 @@
 <template>
-  <b-navbar toggleable="lg" type="dark" variant="dark">
+  <b-navbar toggleable="lg" type="light" variant="light">
     <b-navbar-brand href="#" class="font-weight-bold">Bản đồ Việt Nam</b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav class="font-weight-bold">
-        <b-nav-item href="#" class="item">Tin Tức</b-nav-item>
+        <b-nav-item href="#">Tin Tức</b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
@@ -43,7 +43,4 @@ export default {
 </script>
 
 <style>
-.navbar-dark .navbar-nav .nav-link.item {
-  color: #fff;
-}
 </style>
