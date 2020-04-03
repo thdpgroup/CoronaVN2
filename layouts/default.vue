@@ -1,9 +1,23 @@
 <template>
   <div>
-    <nav />
-    <nuxt />
+    <nav-comp />
+    <nuxt class="mt-3" />
+    <footer class="mastfoot mt-5">
+      <div class="font-weight-bold text-center">
+        <p>&copy; 2020 by THDP team</p>
+      </div>
+    </footer>
   </div>
 </template>
+
+<script>
+import NavComp from '@/components/Nav'
+export default {
+  components: {
+    NavComp
+  }
+}
+</script>
 <style>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -16,7 +30,10 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
-
+body {
+  background-color: #343a40;
+  color: #fff;
+}
 *,
 *:before,
 *:after {
