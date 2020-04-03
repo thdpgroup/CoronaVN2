@@ -75,13 +75,6 @@ namespace geovn
     public string country { get; set; }
     public string province { get; set; }
     public int id { get; set; }
-
-    [JsonProperty("case")]
-    public int Case { get; set; }
-
-    public string color { get; set; } = "#bd8e38";
-
-    public string stroke { get; set; }
-    public string fill { get; set; } = "#bd8e38";
+    
   }
 }

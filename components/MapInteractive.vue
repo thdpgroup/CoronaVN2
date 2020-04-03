@@ -28,8 +28,8 @@
     <div class="card p-3" v-if="checkedContent">
       <h2 class="card-title" v-html="checkedContent.name" v-if="checkedContent.name"></h2>
       <h3 v-if="String(checkedContent.new)&&String(checkedContent.recovered)&&checkedContent.date">Số ca nhiễm mới: {{checkedContent.new}}, bình phục: {{checkedContent.recovered}} (04/02/2020)</h3>
-			<ul class="timeline mt-4" v-if="checkedContent.patients">
-				<li v-for="patient in checkedContent.patients" :key="patient.id" :id="patient.id">
+			<ul class="timeline mt-4" v-if="patients">
+				<li v-for="patient in patients" :key="patient.id" :id="patient.id">
 					<p v-html="patient.report" class="d-inline"></p>
           <a class="text-warning" :href="patient.url" :target="patient.isExternalLink&&'_blank'" v-if="patient.isSeeMore">Xem thêm</a>
           
@@ -44,6 +44,7 @@ import { InfoControl, ReferenceChart } from 'vue-choropleth'
 import ChoroplethLayer from '../plugins/Choropleth'
 
 import map_vn from '../assets/data/map_vn.json'
+import patients from '../assets/data/patients.json'
 import provinces from '../assets/data/provinces.json'
 import {LMap, LTileLayer, LPopup, LCircle, LMarker} from 'vue2-leaflet';
 
