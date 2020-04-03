@@ -17,7 +17,7 @@
         <l-marker  v-if="province.markerLocation.length > 0"
         :lat-lng="province.markerLocation">
           <l-icon class="someCustomClasses" >
-              <p>1</p>
+              <p>{{ province.case }}</p>
           </l-icon>
         </l-marker>
       </template>
