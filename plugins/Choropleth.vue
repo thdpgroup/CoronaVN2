@@ -99,7 +99,7 @@ export default {
               weight: this.strokeWidth
             }
           }
-          let colorIndex = Number(item[this.value.key])
+          let colorIndex = Number(item[this.value.keyColor])
           if (!validNumber(colorIndex)) {
             return {
               color: "white",
@@ -120,7 +120,7 @@ export default {
           layer.on({
             mouseover: mouseover.bind(this),
             mouseout: mouseout.bind(this),
-            click: () => { this.$emit('clickMap', {feature, layer}) }
+            click: () => { this.$emit('clickMap', {feature}) }
           })
         }
       }
