@@ -1,117 +1,243 @@
 [
-  { "name": "An Giang", "id": 1, "case": 10, "color": 1, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Bạc Liêu", "id": 2, "case": 10, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Bắc Giang", "id": 3, "case": 10, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Bắc Kạn", "id": 4, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Bắc Ninh", "id": 5, "case": 10, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Bến Tre", "id": 6, "case": 10, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Bà Rịa - Vũng Tàu", "id": 7, "case":10, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Bình Định", "id": 8, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Bình Dương", "id": 9, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Bình Phước", "id": 10, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Bình Thuận", "id": 11, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Cần Thơ", "id": 12, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Cà Mau", "id": 13, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Cao Bằng", "id": 14, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Đắk Lắk", "id": 15, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Đắk Nông", "id": 16, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Đồng Nai", "id": 17, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Đồng Tháp", "id": 18, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Đà Nẵng", "id": 19, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Điện Biên", "id": 20, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Gia Lai", "id": 21, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Hải Dương", "id": 22, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Hải Phòng", "id": 23, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Hậu Giang", "id": 24, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Hồ Chí Minh", "id": 25, "case": 50, "color": 1, "newCase": 0, "recoveredCase": 0, "deadCase": 0, "totalCase": 50, "date": "04/02/2020", "patients":[
-    {
-      "id": "BN202",
-      "report": "<span class='font-weight-bold'>Bệnh nhân 224</span> là nam, 39 tuổi, quốc tịch Brazil, có địa chỉ tại phường Thảo Điền (quận2, TP.HCM). Bệnh nhân có thời gian sống cùng phòng với bệnh nhân <a href='#BN158'>158</a> tại chung cư Masteri, không có triệu chứng lâm sàng.",
-      "isSeeMore": true,
-      "url": "//vnexpress.net",
-      "isExternalLink": false
-    },
-    {
-      "id": "BN199",
-      "report": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, dicta sed facere quae corporis error cupiditate quis. Corrupti asperiores delectus dicta, ullam minus eveniet eos laborum iste. Itaque, asperiores molestias?"
-    },
-    {
-      "id": "BN198",
-      "report": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, dicta sed facere quae corporis error cupiditate quis. Corrupti asperiores delectus dicta, ullam minus eveniet eos laborum iste. Itaque, asperiores molestias?"
-    },
-    {
-      "id": "BN197",
-      "report": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, dicta sed facere quae corporis error cupiditate quis. Corrupti asperiores delectus dicta, ullam minus eveniet eos laborum iste. Itaque, asperiores molestias?"
-    },
-    {
-      "id": "BN196",
-      "report": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, dicta sed facere quae corporis error cupiditate quis. Corrupti asperiores delectus dicta, ullam minus eveniet eos laborum iste. Itaque, asperiores molestias?"
-    },
-    {
-      "id": "BN195",
-      "report": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, dicta sed facere quae corporis error cupiditate quis. Corrupti asperiores delectus dicta, ullam minus eveniet eos laborum iste. Itaque, asperiores molestias?"
-    },
-    {
-      "id": "BN194",
-      "report": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, dicta sed facere quae corporis error cupiditate quis. Corrupti asperiores delectus dicta, ullam minus eveniet eos laborum iste. Itaque, asperiores molestias?"
-    },
-    {
-      "id": "BN193",
-      "report": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, dicta sed facere quae corporis error cupiditate quis. Corrupti asperiores delectus dicta, ullam minus eveniet eos laborum iste. Itaque, asperiores molestias?"
-    },
-    {
-      "id": "BN192",
-      "report": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, dicta sed facere quae corporis error cupiditate quis. Corrupti asperiores delectus dicta, ullam minus eveniet eos laborum iste. Itaque, asperiores molestias?"
-    },
-    {
-      "id": "BN190",
-      "report": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, dicta sed facere quae corporis error cupiditate quis. Corrupti asperiores delectus dicta, ullam minus eveniet eos laborum iste. Itaque, asperiores molestias?"
-    },
-    {
-      "id": "BN189",
-      "report": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, dicta sed facere quae corporis error cupiditate quis. Corrupti asperiores delectus dicta, ullam minus eveniet eos laborum iste. Itaque, asperiores molestias?"
-    },
-    {
-      "id": "BN158",
-      "report": "<span class='font-weight-bold'>Bệnh nhân 158</span> là nam, 22 tuổi, về nước cùng chuyến bay với bệnh nhân 212 ngày 27.3 và được cách ly tại Trường Văn hóa nghệ thuật Vĩnh Phúc. Sau xét nghiệm sàng lọc cho kết quả dương tính với SARS-CoV-2, bệnh nhân được  chuyển đến Bệnh viện Bệnh nhiệt đới  T.Ư cơ sở 2."
-    }
-  ]},
-  { "name": "Hà Giang", "id": 26, "case": 60, "color": 60, "newCase": 12, "recoveredCase": 0, "date": "04/02/2020"},
-  { "name": "Hà Nội", "id": 27, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Hà Nam", "id": 28, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Hà Tĩnh", "id": 29, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Hoà Bình", "id": 30, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Hưng Yên", "id": 31, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Khánh Hòa", "id": 32, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Kiên Giang", "id": 33, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Kon Tum", "id": 34, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Lạng Sơn", "id": 35, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Lai Châu", "id": 36, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Lâm Đồng", "id": 37, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Lào Cai", "id": 38, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Long An", "id": 39, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Nam Định", "id": 40, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Nghệ An", "id": 41, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Ninh Bình", "id": 42, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Ninh Thuận", "id": 43, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Phú Thọ", "id": 44, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Phú Yên", "id": 45, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Quảng Bình", "id": 46, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Quảng Nam", "id": 47, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Quảng Ngãi", "id": 48, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Quảng Ninh", "id": 49, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Quảng Trị", "id": 50, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Sóc Trăng", "id": 51, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Sơn La", "id": 52, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Tây Ninh", "id": 53, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Thừa Thiên Huế", "id": 54, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Thái Bình", "id": 55, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Thái Nguyên", "id": 56, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Thanh Hóa", "id": 57, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Tiền Giang", "id": 58, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Trà Vinh", "id": 59, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Tuyên Quang", "id": 60, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Vĩnh Long", "id": 61, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Vĩnh Phúc", "id": 62, "case": 0, "color": 0, "newCase": 0, "recoveredCase": 0, "date": ""},
-  { "name": "Yên Bái", "id": 63, "case": 0, "color": 0 , "newCase": 0, "recoveredCase": 0, "date": ""}
+  {
+      "name": "An Giang", "id": "1", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "1"
+  },
+  {
+      "name": "Bạc Liêu", "id": "2", "case": "2", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Bắc Giang", "id": "3", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Bắc Kạn", "id": "4", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Bắc Ninh", "id": "5", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Bến Tre", "id": "6", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Bà Rịa - Vũng Tàu", "id": "7", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Bình Định", "id": "8", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Bình Dương", "id": "9", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Bình Phước", "id": "10", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Bình Thuận", "id": "11", "case": "9", "recovered": "7", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Cần Thơ", "id": "12", "case": "2", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Cà Mau", "id": "13", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Cao Bằng", "id": "14", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Đắk Lắk", "id": "15", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Đắk Nông", "id": "16", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Đồng Nai", "id": "17", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Đồng Tháp", "id": "18", "case": "4", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Đà Nẵng", "id": "19", "case": "6", "recovered": "3", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Điện Biên", "id": "20", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Gia Lai", "id": "21", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Hải Dương", "id": "22", "case": "1", "recovered": "1", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Hải Phòng", "id": "23", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Hậu Giang", "id": "24", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Hồ Chí Minh", "id": "25", "case": "50", "recovered": "15", "death": "0", "new": "0", "color": "0" , "patients":[
+{
+"id": "BN202",
+"report": "<span class='font-weight-bold'>Bệnh nhân 224</span> là nam, 39 tuổi, quốc tịch Brazil, có địa chỉ tại phường Thảo Điền (quận2, TP.HCM). Bệnh nhân có thời gian sống cùng phòng với bệnh nhân <a href='#BN158'>158</a> tại chung cư Masteri, không có triệu chứng lâm sàng.",
+"isSeeMore": true,
+"url": "//vnexpress.net",
+"isExternalLink": false
+},
+{
+"id": "BN199",
+"report": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, dicta sed facere quae corporis error cupiditate quis. Corrupti asperiores delectus dicta, ullam minus eveniet eos laborum iste. Itaque, asperiores molestias?"
+},
+{
+"id": "BN198",
+"report": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, dicta sed facere quae corporis error cupiditate quis. Corrupti asperiores delectus dicta, ullam minus eveniet eos laborum iste. Itaque, asperiores molestias?"
+},
+{
+"id": "BN197",
+"report": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, dicta sed facere quae corporis error cupiditate quis. Corrupti asperiores delectus dicta, ullam minus eveniet eos laborum iste. Itaque, asperiores molestias?"
+},
+{
+"id": "BN196",
+"report": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, dicta sed facere quae corporis error cupiditate quis. Corrupti asperiores delectus dicta, ullam minus eveniet eos laborum iste. Itaque, asperiores molestias?"
+},
+{
+"id": "BN195",
+"report": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, dicta sed facere quae corporis error cupiditate quis. Corrupti asperiores delectus dicta, ullam minus eveniet eos laborum iste. Itaque, asperiores molestias?"
+},
+{
+"id": "BN194",
+"report": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, dicta sed facere quae corporis error cupiditate quis. Corrupti asperiores delectus dicta, ullam minus eveniet eos laborum iste. Itaque, asperiores molestias?"
+},
+{
+"id": "BN193",
+"report": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, dicta sed facere quae corporis error cupiditate quis. Corrupti asperiores delectus dicta, ullam minus eveniet eos laborum iste. Itaque, asperiores molestias?"
+},
+{
+"id": "BN192",
+"report": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, dicta sed facere quae corporis error cupiditate quis. Corrupti asperiores delectus dicta, ullam minus eveniet eos laborum iste. Itaque, asperiores molestias?"
+},
+{
+"id": "BN190",
+"report": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, dicta sed facere quae corporis error cupiditate quis. Corrupti asperiores delectus dicta, ullam minus eveniet eos laborum iste. Itaque, asperiores molestias?"
+},
+{
+"id": "BN189",
+"report": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, dicta sed facere quae corporis error cupiditate quis. Corrupti asperiores delectus dicta, ullam minus eveniet eos laborum iste. Itaque, asperiores molestias?"
+},
+{
+"id": "BN158",
+"report": "<span class='font-weight-bold'>Bệnh nhân 158</span> là nam, 22 tuổi, về nước cùng chuyến bay với bệnh nhân 212 ngày 27.3 và được cách ly tại Trường Văn hóa nghệ thuật Vĩnh Phúc. Sau xét nghiệm sàng lọc cho kết quả dương tính với SARS-CoV-2, bệnh nhân được  chuyển đến Bệnh viện Bệnh nhiệt đới  T.Ư cơ sở 2."
+}
+]
+  },
+  {
+      "name": "Hà Giang", "id": "26", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Hà Nội", "id": "27", "case": "109", "recovered": "41", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Hà Nam", "id": "28", "case": "2", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Hà Tĩnh", "id": "29", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Hoà Bình", "id": "30", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Hưng Yên", "id": "31", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Khánh Hòa", "id": "32", "case": "1", "recovered": "1", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Kiên Giang", "id": "33", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Kon Tum", "id": "34", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Lạng Sơn", "id": "35", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Lai Châu", "id": "36", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Lâm Đồng", "id": "37", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Lào Cai", "id": "38", "case": "2", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Long An", "id": "39", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Nam Định", "id": "40", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Nghệ An", "id": "41", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Ninh Bình", "id": "42", "case": "8", "recovered": "1", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Ninh Thuận", "id": "43", "case": "2", "recovered": "2", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Phú Thọ", "id": "44", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Phú Yên", "id": "45", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Quảng Bình", "id": "46", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Quảng Nam", "id": "47", "case": "3", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Quảng Ngãi", "id": "48", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Quảng Ninh", "id": "49", "case": "6", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Quảng Trị", "id": "50", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Sóc Trăng", "id": "51", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Sơn La", "id": "52", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Tây Ninh", "id": "53", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Thừa Thiên Huế", "id": "54", "case": "2", "recovered": "2", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Thái Bình", "id": "55", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Thái Nguyên", "id": "56", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Thanh Hóa", "id": "57", "case": "3", "recovered": "1", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Tiền Giang", "id": "58", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Trà Vinh", "id": "59", "case": "3", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Tuyên Quang", "id": "60", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Vĩnh Long", "id": "61", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Vĩnh Phúc", "id": "62", "case": "11", "recovered": "11", "death": "0", "new": "0", "color": "0"
+  },
+  {
+      "name": "Yên Bái", "id": "63", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0"
+  }
 ]

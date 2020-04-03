@@ -27,7 +27,7 @@
     </l-map>
     <div class="card p-3" v-if="checkedContent">
       <h2 class="card-title" v-html="checkedContent.name" v-if="checkedContent.name"></h2>
-      <h3 v-if="String(checkedContent.newCase)&&String(checkedContent.recoveredCase)&&checkedContent.date">Số ca nhiễm mới: {{checkedContent.newCase}}, bình phục: {{checkedContent.recoveredCase}} (04/02/2020)</h3>
+      <h3 v-if="String(checkedContent.new)&&String(checkedContent.recovered)&&checkedContent.date">Số ca nhiễm mới: {{checkedContent.new}}, bình phục: {{checkedContent.recovered}} (04/02/2020)</h3>
 			<ul class="timeline mt-4" v-if="checkedContent.patients">
 				<li v-for="patient in checkedContent.patients" :key="patient.id" :id="patient.id">
 					<p v-html="patient.report" class="d-inline"></p>
@@ -98,18 +98,18 @@ export default {
       this.$refs.marker.setVisible(false);
     },
     openPopUp (latLng, caller) {
-      const totalCase = `Tổng số ca: <span class="text-danger font-weight-bold">${this.checkedContent.totalCase||''}</span>`
+      const totalCase = `Tổng số ca: <span class="text-danger font-weight-bold">${this.checkedContent.case||''}</span>`
 
-      const revoceredCase = `,số ca hồi phục: <span class="text-warning font-weight-bold">${this.checkedContent.revoceredCase||''}</span>`
+      const revoceredCase = `,số ca hồi phục: <span class="text-warning font-weight-bold">${this.checkedContent.recovered||''}</span>`
 
-      const deadCase = this.checkedContent.deadCase?`,chết: <span class="text-info font-weight-bold">${this.checkedContent.deadCase}</span>`:''
+      const deadCase = this.checkedContent.death?`,chết: <span class="text-info font-weight-bold">${this.checkedContent.death}</span>`:''
 
       this.$refs.marker.setVisible(true);
       this.$refs.popup.setContent(`${totalCase} ${revoceredCase} ${deadCase}`);
       this.$refs.marker.mapObject.openPopup();
     },
     clickLayer(data) {
-      this.checkedContent = provinces.find(province => province.id === data.feature.properties.id)
+      this.checkedContent = provinces.find(province => province.id == data.feature.properties.id)
       this.openPopUp(this.center, 'circle')
     },
     updateLatLng(data) {
