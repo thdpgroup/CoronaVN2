@@ -60,8 +60,13 @@ const create =  function() {
 }
 module.exports.create = create;
 
+const {
+    to,
+    ResponseError,
+    ResponseSuccess,
+  } = require('../../../services/util.service');
 
-const getProvinces = function(){
+const getProvinces = async function getProvinces(req, res){
     fs.exists(provincesJsonPath, function(exists) {
         if(exists){
             fs.readFile(provincesJsonPath, 'utf8', function readFileCallback(err, data){
@@ -69,8 +74,7 @@ const getProvinces = function(){
                 } else {
                 var content = data;
                 var obj = JSON.parse(content);
-                console.log(obj);
-                return obj;
+                return ResponseSuccess(res, { data: obj });
             }});
         }
   });
