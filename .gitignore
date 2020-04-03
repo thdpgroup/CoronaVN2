@@ -88,3 +88,10 @@ sw.*
 
 # Vim swap files
 *.swp
+/vnGeoJson/vnGeoJson/obj
+bin
+/vnGeoJson/.vs/vnGeoJson/v15/*.suo
+/vnGeoJson/.vs/vnGeoJson/v15/Server/sqlite3/*.lock
+/vnGeoJson/.vs/vnGeoJson/v15/Server/sqlite3/*.ide
+/vnGeoJson/.vs/vnGeoJson/v15/Server/sqlite3/*.ide-shm
+/vnGeoJson/.vs/vnGeoJson/v15/Server/sqlite3/*.ide-wal

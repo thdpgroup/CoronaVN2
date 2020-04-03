@@ -23,15 +23,19 @@
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
     "fs": "0.0.1-security",
-    "iconv-lite": "^0.5.1",
+    "leaflet": "^1.6.0",
     "nuxt": "^2.0.0",
-    "parse-error": "^0.2.0"
+    "nuxt-leaflet": "0.0.21",
+    "parse-error": "^0.2.0",
+    "vue-choropleth": "^0.3.1",
+    "vue2-leaflet": "^2.5.2"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",
     "@nuxtjs/eslint-config-typescript": "^1.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
     "@nuxtjs/stylelint-module": "^3.1.0",
+    "@types/leaflet": "^1.5.12",
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",

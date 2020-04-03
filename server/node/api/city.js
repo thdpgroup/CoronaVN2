@@ -1,8 +1,9 @@
-const fs = require('fs');
 const axios = require('axios');
+const fs = require('fs');
 const urlGetData = 'https://www.parsehub.com/api/v2/runs/tuhDjc8x7rQ7/data?api_key=t-_9R5KZG9aM';
 var cities={};
 var cityJsonPath ='./data/city.json';
+var provincesJsonPath='./assets/data/provinces.json';
 
 const getExistingData = function(){
     fs.exists(cityJsonPath, function(exists) {
@@ -58,5 +59,38 @@ const create =  function() {
     });
 }
 module.exports.create = create;
-  
+
+
+const getProvinces = function(){
+    fs.exists(provincesJsonPath, function(exists) {
+        if(exists){
+            fs.readFile(provincesJsonPath, 'utf8', function readFileCallback(err, data){
+                if (err){ console.log(err);
+                } else {
+                var content = data;
+                var obj = JSON.parse(content);
+                console.log(obj);
+                return obj;
+            }});
+        }
+  });
+}
+
+var GetData = {
+    getProvinces() {
+        fs.exists(provincesJsonPath, function(exists) {
+            if(exists){
+                fs.readFile(provincesJsonPath, 'utf8', function readFileCallback(err, data){
+                    if (err){ console.log(err);
+                    } else {
+                    var content = data;
+                    var obj = JSON.parse(content);
+                    console.log(obj);
+                    return obj;
+                }});
+            }
+      });
+    }
+}
+module.exports.GetData = GetData;  
 

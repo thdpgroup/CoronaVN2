@@ -41,5 +41,6 @@ async function start() {
     coronadata.create();
   }, the_interval);
   
+  city.GetData.getProvinces();
 }
 start()
