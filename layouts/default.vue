@@ -2,7 +2,7 @@
   <div>
     <nav-comp />
     <nuxt class="mt-3" />
-    <footer class="mastfoot mt-5">
+    <footer class="footer mt-5">
       <div class="font-weight-bold text-center">
         <p>&copy; 2020 by THDP team</p>
       </div>
@@ -32,7 +32,6 @@ html {
 }
 body {
   background-color: #343a40;
-  color: #fff;
 }
 *,
 *:before,
@@ -68,5 +67,8 @@ body {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+.footer {
+  color: #fff;
 }
 </style>
