@@ -9,20 +9,18 @@
         :currentStrokeWidth="currentStrokeWidth" @clickMap="clickLayer">
         <template slot-scope="props">
           <l-info-control :item="props.currentItem" :unit="props.unit" title="Số ca nhiễm"/>
-          <l-circle-marker
-            ref="marker"
-            :lat-lng="popupLatLng"
-            :radius="markerOption.radius"
-            :color="markerOption.color"
-            :fillOpacity = "markerOption.opacity"
-            :opacity = "markerOption.opacity"
-            :weight = "markerOption.weight"
-          >
-            <l-popup ref="popup" keepInView="true"></l-popup> 
-          </l-circle-marker>
+          
         </template>
       </l-choropleth-layer>
       <l-tile-layer :url="url" :attribution="tileOptions.attribution" :noWrap="true"></l-tile-layer>
+      <template v-for="province in provinces" >
+        <l-marker  v-if="province.markerLocation.length > 0"
+        :lat-lng="province.markerLocation">
+          <l-icon class="someCustomClasses" >
+              <p>1</p>
+          </l-icon>
+        </l-marker>
+      </template>
 
     </l-map>
     <div class="card p-3 bg-dark" v-if="currentProvince">
@@ -78,10 +76,10 @@ export default {
       strokeWidth: 0.5, 
       currentStrokeWidth : 0.8,
       markerOption: {
-        radius: 0.1,
+        radius: 55,
         opacity: 0.5,
         color	: '#007bff',
-        weight: 1
+        weight: 0.4
       },
       currentProvince: null,
       currentTimeline: null,
@@ -96,7 +94,7 @@ export default {
 
   methods: {
     mapReady(data) {
-      this.$refs.marker.setVisible(false);
+      //this.$refs.marker.setVisible(false);
     },
     openPopUp (latLng, caller) {
       const totalCase = `Tổng số ca: <span class="text-danger font-weight-bold">${this.currentProvince.case||''}</span>`
@@ -105,9 +103,9 @@ export default {
 
       const deadCase = this.currentProvince.death?`, chết: <span class="text-info font-weight-bold">${this.currentProvince.death}</span>`:''
 
-      this.$refs.marker.setVisible(true);
-      this.$refs.popup.setContent(`${totalCase} ${revoceredCase} ${deadCase}`);
-      this.$refs.marker.mapObject.openPopup();
+      // this.$refs.marker.setVisible(true);
+      // this.$refs.popup.setContent(`${totalCase} ${revoceredCase} ${deadCase}`);
+      // this.$refs.marker.mapObject.openPopup();
     },
     clickLayer(data) {
 
