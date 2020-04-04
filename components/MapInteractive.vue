@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-    <l-map ref="mapRef" @ready="mapReady" :center="center" :zoom="zoomSize" style="height: 500px;" @click="updateLatLng" @update:zoom="zoomMap">
+    <l-map ref="mapRef" @ready="mapReady" :center="center" :zoom="zoomSize" style="height: 500px;" @click="updateLatLng" @update:zoom="zoomMap" v-if="provinces">
       <l-choropleth-layer :data="provinces" titleKey="name" idKey="id" :value="value" geojsonIdKey="id" :geojson="map_vn" 
         :colorScale="colorScale" 
         :strokeColor="strokeColor" 
@@ -14,11 +14,11 @@
       <l-tile-layer :url="url" :attribution="tileOptions.attribution" :noWrap="true"></l-tile-layer>
       <template v-for="province in provinces" >
         <l-marker  v-if="province.markerLocation.length > 0"
-        :lat-lng="province.markerLocation" :key="province.id">
+        :lat-lng="province.markerLocation" :key="province.id" @click="markerChanged(province.id)">
           <l-icon class="map--icon">
             <p class="map--icon-text font-weight-bold" v-show="zoomSize>6">{{ province.case }}</p>
           </l-icon>
-          <l-popup > <span class="text-danger text-center d-block font-weight-bold">{{province.case}}</span></l-popup>
+          <l-popup><div class="text-center font-weight-bold" v-html="popupContent"></div></l-popup>
         </l-marker>
       </template>
     </l-map>
@@ -41,8 +41,8 @@ import ChoroplethLayer from '../plugins/Choropleth'
 
 import map_vn from '../assets/data/map_vn.json'
 import timelineStore from '../assets/data/patients.json'
-import provinces from '../assets/data/provinces.json'
-import {LMap, LTileLayer, LPopup, LMarker, LLayerGroup} from 'vue2-leaflet';
+import {LMap, LTileLayer, LPopup, LMarker, LLayerGroup} from 'vue2-leaflet'
+import {mapActions, mapState} from 'vuex'
 
 export default {
   name: "app",
@@ -58,7 +58,6 @@ export default {
   data() {
     return {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      provinces,
       timelineStore: null,
       map_vn,
       colorScale: ["ffc10770", "f10f0f", "ffffff"],
@@ -87,34 +86,35 @@ export default {
     }
   },
   computed: {
+    ...mapState(['provinces']),
     popupLatLng() {
       return this.center
+    },
+    popupContent() {
+      return this.currentProvince && `Tổng số ca: <span class="text-danger font-weight-bold">${this.currentProvince.case||''}</span> số ca hồi phục: <span class="text-warning font-weight-bold">${this.currentProvince.recovered||''}</span> chết: <span class="text-info font-weight-bold">${this.currentProvince.death}</span>`
     }
   },
-
   methods: {
+    ...mapActions(['fetchProvinces']),
     mapReady(data) {
     },
-    setPopUp (latlng, caller) {
-      const totalCase = `Tổng số ca: <span class="text-danger font-weight-bold">${this.currentProvince.case||''}</span>`
-
-      const revoceredCase = `, số ca hồi phục: <span class="text-warning font-weight-bold">${this.currentProvince.recovered||''}</span>`
-
-      const deadCase = this.currentProvince.death?`, chết: <span class="text-info font-weight-bold">${this.currentProvince.death}</span>`:''
-      // this.$refs.marker.setVisible(true);
-      // this.$refs.popup.setContent(`${totalCase} ${revoceredCase} ${deadCase}`);
-      // this.$refs.marker.mapObject.openPopup();
-    },
     clickLayer(data) {
-      this.currentProvince = provinces.find(province => province.id == data.feature.properties.id);
-      this.currentTimeline = timelineStore.find(patient => patient.id == data.feature.properties.id);
+      this.currentProvince = this.provinces.find(province => province.id === data.feature.properties.id)
+      this.currentTimeline = timelineStore.find(patient => patient.id === data.feature.properties.id)
     },
     updateLatLng(data) {
       this.center = [data.latlng.lat, data.latlng.lng]
     },
     zoomMap(zoomSize) {
       this.zoomSize = zoomSize
+    },
+    markerChanged(id) {
+      this.currentProvince = this.provinces.find(province => Number(province.id, 10) === Number(id, 10))
+      this.currentTimeline = timelineStore.find(patient => Number(patient.id, 10) === Number(id, 10))
     }
+  },
+  mounted() {
+    this.fetchProvinces()
   }
 
 }
@@ -138,7 +138,7 @@ export default {
     background: #d4d9df;
     display: inline-block;
     position: absolute;
-    left: 29px;
+    left: 0;
     width: 2px;
     height: 100%;
     z-index: 400;
@@ -153,7 +153,7 @@ export default {
     position: absolute;
     border-radius: 50%;
     border: 3px solid #22c0e8;
-    left: 20px;
+    left: -10px;
     width: 20px;
     height: 20px;
     z-index: 400;
@@ -165,5 +165,13 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@keyframes fade { 
+  from { opacity: 0.5; } 
+}
+
+.map--icon-text:hover {
+  animation: fade 1s infinite alternate;
 }
 </style>
