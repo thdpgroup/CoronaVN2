@@ -27,7 +27,7 @@
     "patients":[
     {
       "id": "BN202",
-      "report": "<span class='font-weight-bold'>Bệnh nhân 224</span> là nam, 39 tuổi, quốc tịch Brazil, có địa chỉ tại phường Thảo Điền (quận2, TP.HCM). Bệnh nhân có thời gian sống cùng phòng với bệnh nhân <a href='#BN158'>158</a> tại chung cư Masteri, không có triệu chứng lâm sàng.",
+      "report": "<div class='timeline--date font-weight-bold'>18:39 03/04/2020</div><span class='font-weight-bold'>Bệnh nhân 224</span> là nam, 39 tuổi, quốc tịch Brazil, có địa chỉ tại phường Thảo Điền (quận2, TP.HCM). Bệnh nhân có thời gian sống cùng phòng với bệnh nhân <a href='#BN158'>158</a> tại chung cư Masteri, không có triệu chứng lâm sàng.",
       "isSeeMore": true,
       "url": "//vnexpress.net",
       "isExternalLink": false
@@ -74,7 +74,7 @@
     },
     {
       "id": "BN158",
-      "report": "<span class='font-weight-bold'>Bệnh nhân 158</span> là nam, 22 tuổi, về nước cùng chuyến bay với bệnh nhân 212 ngày 27.3 và được cách ly tại Trường Văn hóa nghệ thuật Vĩnh Phúc. Sau xét nghiệm sàng lọc cho kết quả dương tính với SARS-CoV-2, bệnh nhân được  chuyển đến Bệnh viện Bệnh nhiệt đới  T.Ư cơ sở 2."
+      "report": "<div class='timeline--date font-weight-bold'>18:39 03/04/2020</div><span class='font-weight-bold'>Bệnh nhân 158</span> là nam, 22 tuổi, về nước cùng chuyến bay với bệnh nhân 212 ngày 27.3 và được cách ly tại Trường Văn hóa nghệ thuật Vĩnh Phúc. Sau xét nghiệm sàng lọc cho kết quả dương tính với SARS-CoV-2, bệnh nhân được  chuyển đến Bệnh viện Bệnh nhiệt đới  T.Ư cơ sở 2."
     }
       ]
   },
