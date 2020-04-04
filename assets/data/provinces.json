@@ -36,7 +36,7 @@
       "name": "Cần Thơ", "id": "12", "case": "2", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [10.066,105.540]
   },
   {
-      "name": "Cà Mau", "id": "13", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [9.048, 105.051]
+      "name": "Cà Mau", "id": "13", "case": "100", "recovered": "0", "death": "0", "new": "0", "color": "1", "markerLocation": [9.048, 105.051]
   },
   {
       "name": "Cao Bằng", "id": "14", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [22.726, 106.183]
