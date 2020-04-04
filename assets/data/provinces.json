@@ -54,7 +54,7 @@
       "name": "Đồng Tháp", "id": "18", "case": "4", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [10.5305, 105.6610]
   },
   {
-      "name": "Đà Nẵng", "id": "19", "case": "6", "recovered": "3", "death": "0", "new": "0", "color": "0", "markerLocation": [16.099, 108.171]
+      "name": "Đà Nẵng", "id": "19", "case": "6", "recovered": "4", "death": "0", "new": "0", "color": "0", "markerLocation": [16.099, 108.171]
   },
   {
       "name": "Điện Biên", "id": "20", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [21.617, 103.206]
@@ -72,13 +72,13 @@
       "name": "Hậu Giang", "id": "24", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [9.7659, 105.6390]
   },
   {
-      "name": "Hồ Chí Minh", "id": "25", "case": "50", "recovered": "15", "death": "0", "new": "0", "color": "0", "markerLocation": [10.7564, 106.7157]
+      "name": "Hồ Chí Minh", "id": "25", "case": "53", "recovered": "19", "death": "0", "new": "0", "color": "0", "markerLocation": [10.7564, 106.7157]
   },
   {
       "name": "Hà Giang", "id": "26", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [22.812, 104.996]
   },
   {
-      "name": "Hà Nội", "id": "27", "case": "109", "recovered": "41", "death": "0", "new": "0", "color": "0", "markerLocation": [21.0163, 105.8560]
+      "name": "Hà Nội", "id": "27", "case": "110", "recovered": "41", "death": "0", "new": "0", "color": "0", "markerLocation": [21.0163, 105.8560]
   },
   {
       "name": "Hà Nam", "id": "28", "case": "2", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [20.5351, 105.9631]
@@ -183,7 +183,7 @@
       "name": "Vĩnh Long", "id": "61", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [10.0987, 105.9631]
   },
   {
-      "name": "Vĩnh Phúc", "id": "62", "case": "11", "recovered": "11", "death": "0", "new": "0", "color": "0", "markerLocation": [21.3559, 105.5759]
+      "name": "Vĩnh Phúc", "id": "62", "case": "12", "recovered": "11", "death": "0", "new": "0", "color": "0", "markerLocation": [21.3559, 105.5759]
   },
   {
       "name": "Yên Bái", "id": "63", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [21.795, 104.469]
