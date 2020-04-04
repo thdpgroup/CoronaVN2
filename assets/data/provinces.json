@@ -78,13 +78,13 @@
       "name": "Hà Giang", "id": "26", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [22.812, 104.996]
   },
   {
-      "name": "Hà Nội", "id": "27", "case": "110", "recovered": "41", "death": "0", "new": "0", "color": "0", "markerLocation": [21.0163, 105.8560]
+      "name": "Hà Nội", "id": "27", "case": "111", "recovered": "41", "death": "0", "new": "0", "color": "0", "markerLocation": [21.0163, 105.8560]
   },
   {
       "name": "Hà Nam", "id": "28", "case": "2", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [20.5351, 105.9631]
   },
   {
-      "name": "Hà Tĩnh", "id": "29", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [18.3447, 105.8986]
+      "name": "Hà Tĩnh", "id": "29", "case": "2", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [18.3447, 105.8986]
   },
   {
       "name": "Hoà Bình", "id": "30", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [20.8139, 105.3458]
