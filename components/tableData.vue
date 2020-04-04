@@ -1,15 +1,19 @@
 <template>
   <div id="app" class="container background-color">
+    <div style="padding-bottom:10px">
+      Total : {{ totalCase }} - Recovered : {{ totalRecovered }} - totalDeath :
+      {{ death }}
+    </div>
     <div>
       <v-data-table
         class="elevation-1"
         :items="Details"
         :headers="DetailHeader"
         item-key="ReInvoicingId"
-        sort-by= "case"
-        sort-desc= true
-        multi-sort= true
-        items-per-page=-1
+        sort-by="case"
+        sort-desc="true"
+        multi-sort="true"
+        items-per-page="-1"
       >
       </v-data-table>
     </div>
@@ -23,6 +27,9 @@ export default {
   data() {
     return {
       Details: [],
+      totalCase: 239,
+      totalRecovered: 90,
+      totalDeath: 0,
       DetailHeader: [
         {
           text: 'id',
