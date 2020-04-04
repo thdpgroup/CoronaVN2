@@ -63,7 +63,7 @@ namespace vnGeoJson
       {
         i++;
         provinces.Add(new ProvinceJson() {
-          Id = i,
+          id = i,
           Case = 0,
           color = 0,
           name = feature.properties.province
