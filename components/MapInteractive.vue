@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-    <l-map @ready="mapReady" :center="center" :zoom="6" style="height: 500px;" @click="updateLatLng" class="map">
+    <l-map ref="mapRef" @ready="mapReady" :center="center" :zoom="zoomSize" style="height: 500px;" @click="updateLatLng" @update:zoom="zoomMap">
       <l-choropleth-layer :data="provinces" titleKey="name" idKey="id" :value="value" geojsonIdKey="id" :geojson="map_vn" 
         :colorScale="colorScale" 
         :strokeColor="strokeColor" 
@@ -15,9 +15,9 @@
       <l-tile-layer :url="url" :attribution="tileOptions.attribution" :noWrap="true"></l-tile-layer>
       <template v-for="province in provinces" >
         <l-marker  v-if="province.markerLocation.length > 0"
-        :lat-lng="province.markerLocation">
-          <l-icon class="someCustomClasses" >
-              <p>{{ province.case }}</p>
+        :lat-lng="province.markerLocation" :key="province.id">
+          <l-icon class="map--icon">
+            <p class="map--icon-text font-weight-bold" v-show="zoomSize>6">{{ province.case }}</p>
           </l-icon>
         </l-marker>
       </template>
@@ -83,7 +83,8 @@ export default {
       },
       currentProvince: null,
       currentTimeline: null,
-      center: [16.109,102.797]
+      center: [16.109,102.797],
+      zoomSize: 5
     }
   },
   computed: {
@@ -115,6 +116,9 @@ export default {
     },
     updateLatLng(data) {
       this.center = [data.latlng.lat, data.latlng.lng]
+    },
+    zoomMap(zoomSize) {
+      this.zoomSize = zoomSize
     }
   }
 
@@ -184,5 +188,13 @@ export default {
   padding: 5px 0;
   margin-bottom: 10px;
   border-bottom: 1px solid rgb(255, 255, 255, .5);
+}
+.map--icon-text {
+  font-size: 14px;
+  text-shadow: 0 0 10px #ffee06, 0 0 10px #48ff00;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>
