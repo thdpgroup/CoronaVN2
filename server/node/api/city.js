@@ -60,11 +60,7 @@ const create =  function() {
 }
 module.exports.create = create;
 
-const {
-    to,
-    ResponseError,
-    ResponseSuccess,
-  } = require('../../../services/util.service');
+const {to,ResponseError,ResponseSuccess,} = require('../../services/util.service');
 
 const getProvinces = async function getProvinces(req, res){
     fs.exists(provincesJsonPath, function(exists) {
