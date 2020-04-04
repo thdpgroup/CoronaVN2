@@ -1,191 +1,191 @@
 [
   {
-      "name": "An Giang", "id": "1", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "1", "markerLocation": []
+      "name": "An Giang", "id": "1", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "1", "markerLocation": [10.677, 105.139]
   },
   {
-      "name": "Bạc Liêu", "id": "2", "case": "2", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Bạc Liêu", "id": "2", "case": "2", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [8.880, 105.710]
   },
   {
-      "name": "Bắc Giang", "id": "3", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Bắc Giang", "id": "3", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [21.2747, 106.1952]
   },
   {
-      "name": "Bắc Kạn", "id": "4", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Bắc Kạn", "id": "4", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [22.126, 105.837]
   },
   {
-      "name": "Bắc Ninh", "id": "5", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Bắc Ninh", "id": "5", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [21.1844, 106.0675]
   },
   {
-      "name": "Bến Tre", "id": "6", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Bến Tre", "id": "6", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [10.2311, 106.3586]
   },
   {
-      "name": "Bà Rịa - Vũng Tàu", "id": "7", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Bà Rịa - Vũng Tàu", "id": "7", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [10.4939, 107.1716]
   },
   {
-      "name": "Bình Định", "id": "8", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Bình Định", "id": "8", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [14.115, 109.116]
   },
   {
-      "name": "Bình Dương", "id": "9", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Bình Dương", "id": "9", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [11.205, 106.639]
   },
   {
-      "name": "Bình Phước", "id": "10", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Bình Phước", "id": "10", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [11.803, 106.891]
   },
   {
-      "name": "Bình Thuận", "id": "11", "case": "9", "recovered": "7", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Bình Thuận", "id": "11", "case": "9", "recovered": "7", "death": "0", "new": "0", "color": "0", "markerLocation": [11.479, 109.034]
   },
   {
-      "name": "Cần Thơ", "id": "12", "case": "2", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Cần Thơ", "id": "12", "case": "2", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [10.066,105.540]
   },
   {
       "name": "Cà Mau", "id": "13", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [9.048, 105.051]
   },
   {
-      "name": "Cao Bằng", "id": "14", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Cao Bằng", "id": "14", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [22.726, 106.183]
   },
   {
-      "name": "Đắk Lắk", "id": "15", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Đắk Lắk", "id": "15", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [12.785, 108.402]
   },
   {
-      "name": "Đắk Nông", "id": "16", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Đắk Nông", "id": "16", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [12.281, 107.737]
   },
   {
-      "name": "Đồng Nai", "id": "17", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Đồng Nai", "id": "17", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [11.114, 107.205]
   },
   {
-      "name": "Đồng Tháp", "id": "18", "case": "4", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Đồng Tháp", "id": "18", "case": "4", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [10.5305, 105.6610]
   },
   {
-      "name": "Đà Nẵng", "id": "19", "case": "6", "recovered": "3", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Đà Nẵng", "id": "19", "case": "6", "recovered": "3", "death": "0", "new": "0", "color": "0", "markerLocation": [16.099, 108.171]
   },
   {
-      "name": "Điện Biên", "id": "20", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Điện Biên", "id": "20", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [21.617, 103.206]
   },
   {
-      "name": "Gia Lai", "id": "21", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Gia Lai", "id": "21", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [13.774, 108.062]
   },
   {
-      "name": "Hải Dương", "id": "22", "case": "1", "recovered": "1", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Hải Dương", "id": "22", "case": "1", "recovered": "1", "death": "0", "new": "0", "color": "0", "markerLocation": [20.931, 106.320]
   },
   {
-      "name": "Hải Phòng", "id": "23", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Hải Phòng", "id": "23", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [20.8575, 106.6594]
   },
   {
-      "name": "Hậu Giang", "id": "24", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Hậu Giang", "id": "24", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [9.7659, 105.6390]
   },
   {
-      "name": "Hồ Chí Minh", "id": "25", "case": "50", "recovered": "15", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Hồ Chí Minh", "id": "25", "case": "50", "recovered": "15", "death": "0", "new": "0", "color": "0", "markerLocation": [10.7564, 106.7157]
   },
   {
-      "name": "Hà Giang", "id": "26", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Hà Giang", "id": "26", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [22.812, 104.996]
   },
   {
-      "name": "Hà Nội", "id": "27", "case": "109", "recovered": "41", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Hà Nội", "id": "27", "case": "109", "recovered": "41", "death": "0", "new": "0", "color": "0", "markerLocation": [21.0163, 105.8560]
   },
   {
-      "name": "Hà Nam", "id": "28", "case": "2", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Hà Nam", "id": "28", "case": "2", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [20.5351, 105.9631]
   },
   {
-      "name": "Hà Tĩnh", "id": "29", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Hà Tĩnh", "id": "29", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [18.3447, 105.8986]
   },
   {
-      "name": "Hoà Bình", "id": "30", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Hoà Bình", "id": "30", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [20.8139, 105.3458]
   },
   {
-      "name": "Hưng Yên", "id": "31", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Hưng Yên", "id": "31", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [20.8023, 106.0249]
   },
   {
-      "name": "Khánh Hòa", "id": "32", "case": "1", "recovered": "1", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Khánh Hòa", "id": "32", "case": "1", "recovered": "1", "death": "0", "new": "0", "color": "0", "markerLocation": [12.2729, 109.1684]
   },
   {
-      "name": "Kiên Giang", "id": "33", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Kiên Giang", "id": "33", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [9.996, 105.024]
   },
   {
-      "name": "Kon Tum", "id": "34", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Kon Tum", "id": "34", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [14.488, 107.985]
   },
   {
-      "name": "Lạng Sơn", "id": "35", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Lạng Sơn", "id": "35", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [21.907, 106.617]
   },
   {
-      "name": "Lai Châu", "id": "36", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Lai Châu", "id": "36", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [22.248, 103.337]
   },
   {
-      "name": "Lâm Đồng", "id": "37", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Lâm Đồng", "id": "37", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [11.771, 108.056]
   },
   {
-      "name": "Lào Cai", "id": "38", "case": "2", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Lào Cai", "id": "38", "case": "2", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [22.340, 104.139]
   },
   {
-      "name": "Long An", "id": "39", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Long An", "id": "39", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [10.731, 106.139]
   },
   {
-      "name": "Nam Định", "id": "40", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Nam Định", "id": "40", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [20.4180, 106.1705]
   },
   {
-      "name": "Nghệ An", "id": "41", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Nghệ An", "id": "41", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [19.270, 104.886]
   },
   {
-      "name": "Ninh Bình", "id": "42", "case": "8", "recovered": "1", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Ninh Bình", "id": "42", "case": "8", "recovered": "1", "death": "0", "new": "0", "color": "0", "markerLocation": [20.2596, 105.9796]
   },
   {
-      "name": "Ninh Thuận", "id": "43", "case": "2", "recovered": "2", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Ninh Thuận", "id": "43", "case": "2", "recovered": "2", "death": "0", "new": "0", "color": "0", "markerLocation": [11.496, 108.940]
   },
   {
-      "name": "Phú Thọ", "id": "44", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Phú Thọ", "id": "44", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [21.3047, 105.1227]
   },
   {
-      "name": "Phú Yên", "id": "45", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Phú Yên", "id": "45", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [13.160, 109.281]
   },
   {
-      "name": "Quảng Bình", "id": "46", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Quảng Bình", "id": "46", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [17.518, 106.403]
   },
   {
-      "name": "Quảng Nam", "id": "47", "case": "3", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Quảng Nam", "id": "47", "case": "3", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [15.538, 108.116]
   },
   {
-      "name": "Quảng Ngãi", "id": "48", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Quảng Ngãi", "id": "48", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [15.168, 108.820]
   },
   {
-      "name": "Quảng Ninh", "id": "49", "case": "6", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Quảng Ninh", "id": "49", "case": "6", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [21.049, 107.325]
   },
   {
-      "name": "Quảng Trị", "id": "50", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Quảng Trị", "id": "50", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [16.831, 106.979]
   },
   {
-      "name": "Sóc Trăng", "id": "51", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Sóc Trăng", "id": "51", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [9.601, 105.963]
   },
   {
-      "name": "Sơn La", "id": "52", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Sơn La", "id": "52", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [21.3175, 104.1174]
   },
   {
-      "name": "Tây Ninh", "id": "53", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Tây Ninh", "id": "53", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [11.362, 106.117]
   },
   {
-      "name": "Thừa Thiên Huế", "id": "54", "case": "2", "recovered": "2", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Thừa Thiên Huế", "id": "54", "case": "2", "recovered": "2", "death": "0", "new": "0", "color": "0", "markerLocation": [16.468, 107.567]
   },
   {
-      "name": "Thái Bình", "id": "55", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Thái Bình", "id": "55", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [20.4322, 106.5111]
   },
   {
-      "name": "Thái Nguyên", "id": "56", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Thái Nguyên", "id": "56", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [21.6881, 105.8299]
   },
   {
-      "name": "Thanh Hóa", "id": "57", "case": "3", "recovered": "1", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Thanh Hóa", "id": "57", "case": "3", "recovered": "1", "death": "0", "new": "0", "color": "0", "markerLocation": [19.7925, 105.7654]
   },
   {
-      "name": "Tiền Giang", "id": "58", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Tiền Giang", "id": "58", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [10.364, 106.287]
   },
   {
-      "name": "Trà Vinh", "id": "59", "case": "3", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Trà Vinh", "id": "59", "case": "3", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [9.926, 106.331]
   },
   {
-      "name": "Tuyên Quang", "id": "60", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Tuyên Quang", "id": "60", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [22.086, 105.249]
   },
   {
-      "name": "Vĩnh Long", "id": "61", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Vĩnh Long", "id": "61", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [10.0987, 105.9631]
   },
   {
-      "name": "Vĩnh Phúc", "id": "62", "case": "11", "recovered": "11", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Vĩnh Phúc", "id": "62", "case": "11", "recovered": "11", "death": "0", "new": "0", "color": "0", "markerLocation": [21.3559, 105.5759]
   },
   {
-      "name": "Yên Bái", "id": "63", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": []
+      "name": "Yên Bái", "id": "63", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [21.795, 104.469]
   }
 ]
