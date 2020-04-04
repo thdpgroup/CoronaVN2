@@ -82,7 +82,7 @@ export default {
       },
       currentProvince: null,
       currentTimeline: null,
-      center: [16.109,102.797],
+      center: [16.003575733881327,105.38085937500001],
       zoomSize: 5
     }
   },
