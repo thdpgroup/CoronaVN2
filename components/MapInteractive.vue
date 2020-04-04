@@ -134,7 +134,7 @@ export default {
 .map {
   box-shadow: 0 5px 10px 4px rgba(253, 200, 10, .4)
 }
-.timeline {
+.timeline { 
   list-style-type: none;
   position: relative;
 }
@@ -158,36 +158,10 @@ export default {
     position: absolute;
     border-radius: 50%;
     border: 3px solid #22c0e8;
-    left: -40px;
+    left: 20px;
     width: 20px;
     height: 20px;
     z-index: 400;
-}
-.timeline > li:after {
-    content: ' ';
-    display: inline-block;
-    position: absolute;
-    border-left: 10px solid #333232;
-    border-top: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid #333232;
-    top: 12px;
-    left: -10px;
-    transform: rotate(45deg);
-    width: 20px;
-    height: 20px;
-    z-index: 400;
-}
-.timeline--item {
-  background: #333232;
-  padding: 10px;
-  position: relative;
-}
-.timeline--date {
-  font-size: 20px;
-  padding: 5px 0;
-  margin-bottom: 10px;
-  border-bottom: 1px solid rgb(255, 255, 255, .5);
 }
 .map--icon-text {
   font-size: 14px;
