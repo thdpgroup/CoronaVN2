@@ -21,7 +21,6 @@
           <l-popup > <span class="text-danger text-center d-block font-weight-bold">{{province.case}}</span></l-popup>
         </l-marker>
       </template>
-
     </l-map>
     <div class="card p-3 bg-dark province" v-if="currentProvince">
       <h2 class="card-title" v-html="currentProvince.name" v-if="currentProvince.name"></h2>
@@ -62,7 +61,7 @@ export default {
       provinces,
       timelineStore: null,
       map_vn,
-      colorScale: ["fd7e14", "f10f0f", "ffffff"],
+      colorScale: ["ffc10770", "f10f0f", "ffffff"],
       value: {
         key: "case",
         keyColor: "color",
@@ -71,7 +70,7 @@ export default {
       tileOptions: {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       },
-      strokeColor: "fff",
+      strokeColor: "007bff",
       currentStrokeColor: 'cc0909',
       strokeWidth: 0.5, 
       currentStrokeWidth : 0.8,
@@ -95,7 +94,6 @@ export default {
 
   methods: {
     mapReady(data) {
-      //this.$refs.marker.setVisible(false);
     },
     setPopUp (latlng, caller) {
       const totalCase = `Tổng số ca: <span class="text-danger font-weight-bold">${this.currentProvince.case||''}</span>`
