@@ -6,10 +6,9 @@
         :strokeColor="strokeColor" 
         :currentStrokeColor="currentStrokeColor"
         :strokeWidth="strokeWidth"
-        :currentStrokeWidth="currentStrokeWidth" @clickMap="clickLayer">
+        :currentStrokeWidth="currentStrokeWidth" @clickMap="clickLayer"  ref="marker">
         <template slot-scope="props">
           <l-info-control :item="props.currentItem" :unit="props.unit" title="Số ca nhiễm"/>
-          
         </template>
       </l-choropleth-layer>
       <l-tile-layer :url="url" :attribution="tileOptions.attribution" :noWrap="true"></l-tile-layer>
@@ -19,6 +18,7 @@
           <l-icon class="map--icon">
             <p class="map--icon-text font-weight-bold" v-show="zoomSize>6">{{ province.case }}</p>
           </l-icon>
+          <l-popup > <span class="text-danger text-center d-block font-weight-bold">{{province.case}}</span></l-popup>
         </l-marker>
       </template>
 
@@ -43,15 +43,15 @@ import ChoroplethLayer from '../plugins/Choropleth'
 import map_vn from '../assets/data/map_vn.json'
 import timelineStore from '../assets/data/patients.json'
 import provinces from '../assets/data/provinces.json'
-import {LMap, LTileLayer, LPopup, LCircle, LMarker} from 'vue2-leaflet';
+import {LMap, LTileLayer, LPopup, LMarker, LLayerGroup} from 'vue2-leaflet';
 
 export default {
   name: "app",
   components: { 
     LMap,
     LTileLayer,
-    LPopup, LCircle,
-    LMarker,
+    LPopup,
+    LMarker, LLayerGroup,
     'l-info-control': InfoControl, 
     'l-reference-chart': ReferenceChart, 
     'l-choropleth-layer': ChoroplethLayer
@@ -97,22 +97,19 @@ export default {
     mapReady(data) {
       //this.$refs.marker.setVisible(false);
     },
-    openPopUp (latLng, caller) {
+    setPopUp (latlng, caller) {
       const totalCase = `Tổng số ca: <span class="text-danger font-weight-bold">${this.currentProvince.case||''}</span>`
 
       const revoceredCase = `, số ca hồi phục: <span class="text-warning font-weight-bold">${this.currentProvince.recovered||''}</span>`
 
       const deadCase = this.currentProvince.death?`, chết: <span class="text-info font-weight-bold">${this.currentProvince.death}</span>`:''
-
       // this.$refs.marker.setVisible(true);
       // this.$refs.popup.setContent(`${totalCase} ${revoceredCase} ${deadCase}`);
       // this.$refs.marker.mapObject.openPopup();
     },
     clickLayer(data) {
-
       this.currentProvince = provinces.find(province => province.id == data.feature.properties.id);
       this.currentTimeline = timelineStore.find(patient => patient.id == data.feature.properties.id);
-      this.openPopUp(this.center, 'circle')
     },
     updateLatLng(data) {
       this.center = [data.latlng.lat, data.latlng.lng]
@@ -128,11 +125,11 @@ export default {
 @import "../node_modules/leaflet/dist/leaflet.css";
 .province {
   margin-top: 50px;
-  box-shadow: 0 5px 10px 4px rgba(253, 200, 10, .4);
+  box-shadow: 0 3px 6px 2px #17a2b8;
   color: #fff;
 }
 .map {
-  box-shadow: 0 5px 10px 4px rgba(253, 200, 10, .4)
+  box-shadow: 0 3px 6px 2px #17a2b8;
 }
 .timeline { 
   list-style-type: none;
