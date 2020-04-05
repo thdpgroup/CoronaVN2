@@ -94,6 +94,7 @@ export default {
         buttonCaption: "Miền Bắc",
         centerAtSouth: [11.851,106.765],
         centerAtNorth: [20.018,105.612],
+        zoomSizeDefault: 0
       }
     }
   },
@@ -109,6 +110,7 @@ export default {
   methods: {
     ...mapActions(['fetchProvinces']),
     mapReady(data) {
+      this.zoomControl.zoomSizeDefault = this.zoomSize;
     },
     clickLayer(data) {
       this.currentProvince = this.provinces.find(province => Number(province.id, 10) == Number(data.feature.properties.id, 10));
@@ -125,6 +127,7 @@ export default {
       this.currentTimeline = timelineStore.find(patient => Number(patient.cityId, 10) === Number(id, 10) || patient.cityId == -1 )
     },
     switchNSHandler(){
+      this.zoomSize = this.zoomControl.zoomSizeDefault;
       this.zoomControl.isNorth = !this.zoomControl.isNorth;
       this.zoomControl.buttonCaption = this.zoomControl.isNorth ? "Miền Nam" : "Miền Bắc";
       this.center = this.zoomControl.isNorth ?  this.zoomControl.centerAtNorth :  this.zoomControl.centerAtSouth;
