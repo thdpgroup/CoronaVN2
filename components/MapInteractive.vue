@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-    <l-map ref="mapRef" @ready="mapReady" :center="center" :zoom="zoomSize" style="height: 600px;" @click="updateLatLng" @update:zoom="zoomMap" v-if="provinces">
+    <l-map ref="mapRef" @ready="mapReady" :center="center" :zoom="zoomSize" style="height: 600px;" @update:zoom="zoomMap" v-if="provinces">
       <l-choropleth-layer :data="provinces" titleKey="name" idKey="id" :value="value" geojsonIdKey="id" :geojson="map_vn" 
         :colorScale="colorScale" 
         :strokeColor="strokeColor" 
@@ -114,9 +114,9 @@ export default {
       this.currentProvince = this.provinces.find(province => Number(province.id, 10) == Number(data.feature.properties.id, 10));
       this.currentTimeline = timelineStore.filter(patient => (Number(patient.cityId, 10) == Number(data.feature.properties.id, 10) || patient.cityId == -1));
     },
-    updateLatLng(data) {
-      this.center = [data.latlng.lat, data.latlng.lng]
-    },
+    // updateLatLng(data) {
+    //   this.center = [data.latlng.lat, data.latlng.lng]
+    // },
     zoomMap(zoomSize) {
       this.zoomSize = zoomSize
     },
