@@ -26,9 +26,9 @@
       <h2 class="card-title" v-html="currentProvince.name" v-if="currentProvince.name"></h2>
       <h3 v-if="String(currentProvince.new)&&String(currentProvince.recovered)&&currentProvince.date">Số ca nhiễm mới: {{currentProvince.new}}, bình phục: {{checkedContent.recovered}} (04/02/2020)</h3>
 			<ul class="timeline mt-4" v-if="currentTimeline">
-				<li v-for="timeline in currentTimeline.patients" :key="timeline.id" :id="timeline.id" class="timeline--item">
+				<li v-for="timeline in currentTimeline" :key="timeline.id" :id="timeline.id" class="timeline--item">
 					<p v-html="timeline.report" class="d-inline"></p>
-          <a class="text-warning" :href="timeline.url" :target="timeline.isExternalLink&&'_blank'" v-if="timeline.isSeeMore">Xem thêm</a>
+          <!-- <a class="text-warning" :href="timeline.url" :target="timeline.isExternalLink&&'_blank'" v-if="timeline.isSeeMore">Xem thêm</a> -->
 				</li>
 			</ul>
     </div>
@@ -59,7 +59,7 @@ export default {
     return {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       provinces,
-      timelineStore: null,
+      timelineStore,
       map_vn,
       colorScale: ["ffc10770", "f10f0f", "ffffff"],
       value: {
@@ -107,7 +107,7 @@ export default {
     },
     clickLayer(data) {
       this.currentProvince = provinces.find(province => province.id == data.feature.properties.id);
-      this.currentTimeline = timelineStore.find(patient => patient.id == data.feature.properties.id);
+      this.currentTimeline = timelineStore.filter(patient => (patient.cityId == data.feature.properties.id || patient.cityId == -1));
     },
     updateLatLng(data) {
       this.center = [data.latlng.lat, data.latlng.lng]

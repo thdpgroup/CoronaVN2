@@ -94,8 +94,8 @@ export default {
   data() {
     return {
       Details: [],
-      totalCase: 239,
-      totalRecovered: 90,
+      totalCase: 0,
+      totalRecovered: 0,
       totalDeath: 0,
       dialog: false,
       DetailHeader: [
@@ -163,8 +163,16 @@ export default {
   },
   mounted() {
     this.Details = provinces
+    this.totalCase = this.sum(this.Details, 'case')
+    this.totalRecovered = this.sum(this.Details, 'recovered')
+    this.totalDeath = this.sum(this.Details, 'death')
   },
   methods: {
+    sum(items, prop) {
+      return items.reduce(function(a, b) {
+        return a + parseInt(b[prop])
+      }, 0)
+    },
     editItem(item) {
       this.dialog = false
       this.editedIndex = this.Details.indexOf(item)
