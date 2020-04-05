@@ -1,6 +1,6 @@
 <template>
-  <b-navbar toggleable="lg" type="light" variant="light">
-    <b-navbar-brand href="#" class="font-weight-bold">Bản đồ Việt Nam</b-navbar-brand>
+  <b-navbar toggleable="lg" type="dark" variant="info">
+    <b-navbar-brand href="#" class="font-weight-bold">Bản đồ Corona Việt Nam</b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 

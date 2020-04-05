@@ -1,29 +1,26 @@
 <template>
   <div id="app" class="container">
-    <l-map @ready="mapReady" :center="center" :zoom="6" style="height: 500px;" @click="updateLatLng" class="map">
+    <l-map ref="mapRef" @ready="mapReady" :center="center" :zoom="zoomSize" style="height: 500px;" @click="updateLatLng" @update:zoom="zoomMap">
       <l-choropleth-layer :data="provinces" titleKey="name" idKey="id" :value="value" geojsonIdKey="id" :geojson="map_vn" 
         :colorScale="colorScale" 
         :strokeColor="strokeColor" 
         :currentStrokeColor="currentStrokeColor"
         :strokeWidth="strokeWidth"
-        :currentStrokeWidth="currentStrokeWidth" @clickMap="clickLayer">
+        :currentStrokeWidth="currentStrokeWidth" @clickMap="clickLayer"  ref="marker">
         <template slot-scope="props">
           <l-info-control :item="props.currentItem" :unit="props.unit" title="Số ca nhiễm"/>
-          <l-circle-marker
-            ref="marker"
-            :lat-lng="popupLatLng"
-            :radius="markerOption.radius"
-            :color="markerOption.color"
-            :fillOpacity = "markerOption.opacity"
-            :opacity = "markerOption.opacity"
-            :weight = "markerOption.weight"
-          >
-            <l-popup ref="popup" keepInView="true"></l-popup> 
-          </l-circle-marker>
         </template>
       </l-choropleth-layer>
       <l-tile-layer :url="url" :attribution="tileOptions.attribution" :noWrap="true"></l-tile-layer>
-
+      <template v-for="province in provinces" >
+        <l-marker  v-if="province.markerLocation.length > 0"
+        :lat-lng="province.markerLocation" :key="province.id">
+          <l-icon class="map--icon">
+            <p class="map--icon-text font-weight-bold" v-show="zoomSize>6">{{ province.case }}</p>
+          </l-icon>
+          <l-popup > <span class="text-danger text-center d-block font-weight-bold">{{province.case}}</span></l-popup>
+        </l-marker>
+      </template>
     </l-map>
     <div class="card p-3 bg-dark province" v-if="currentProvince">
       <h2 class="card-title" v-html="currentProvince.name" v-if="currentProvince.name"></h2>
@@ -45,15 +42,15 @@ import ChoroplethLayer from '../plugins/Choropleth'
 import map_vn from '../assets/data/map_vn.json'
 import timelineStore from '../assets/data/patients.json'
 import provinces from '../assets/data/provinces.json'
-import {LMap, LTileLayer, LPopup, LCircle, LMarker} from 'vue2-leaflet';
+import {LMap, LTileLayer, LPopup, LMarker, LLayerGroup} from 'vue2-leaflet';
 
 export default {
   name: "app",
   components: { 
     LMap,
     LTileLayer,
-    LPopup, LCircle,
-    LMarker,
+    LPopup,
+    LMarker, LLayerGroup,
     'l-info-control': InfoControl, 
     'l-reference-chart': ReferenceChart, 
     'l-choropleth-layer': ChoroplethLayer
@@ -64,7 +61,7 @@ export default {
       provinces,
       timelineStore: null,
       map_vn,
-      colorScale: ["fd7e14", "f10f0f", "ffffff"],
+      colorScale: ["ffc10770", "f10f0f", "ffffff"],
       value: {
         key: "case",
         keyColor: "color",
@@ -73,19 +70,20 @@ export default {
       tileOptions: {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       },
-      strokeColor: "fff",
+      strokeColor: "007bff",
       currentStrokeColor: 'cc0909',
       strokeWidth: 0.5, 
       currentStrokeWidth : 0.8,
       markerOption: {
-        radius: 0.1,
+        radius: 55,
         opacity: 0.5,
         color	: '#007bff',
-        weight: 1
+        weight: 0.4
       },
       currentProvince: null,
       currentTimeline: null,
-      center: [16.109,102.797]
+      center: [16.003575733881327,105.38085937500001],
+      zoomSize: 5
     }
   },
   computed: {
@@ -96,27 +94,26 @@ export default {
 
   methods: {
     mapReady(data) {
-      this.$refs.marker.setVisible(false);
     },
-    openPopUp (latLng, caller) {
+    setPopUp (latlng, caller) {
       const totalCase = `Tổng số ca: <span class="text-danger font-weight-bold">${this.currentProvince.case||''}</span>`
 
       const revoceredCase = `, số ca hồi phục: <span class="text-warning font-weight-bold">${this.currentProvince.recovered||''}</span>`
 
       const deadCase = this.currentProvince.death?`, chết: <span class="text-info font-weight-bold">${this.currentProvince.death}</span>`:''
-
-      this.$refs.marker.setVisible(true);
-      this.$refs.popup.setContent(`${totalCase} ${revoceredCase} ${deadCase}`);
-      this.$refs.marker.mapObject.openPopup();
+      // this.$refs.marker.setVisible(true);
+      // this.$refs.popup.setContent(`${totalCase} ${revoceredCase} ${deadCase}`);
+      // this.$refs.marker.mapObject.openPopup();
     },
     clickLayer(data) {
-
       this.currentProvince = provinces.find(province => province.id == data.feature.properties.id);
       this.currentTimeline = timelineStore.find(patient => patient.id == data.feature.properties.id);
-      this.openPopUp(this.center, 'circle')
     },
     updateLatLng(data) {
       this.center = [data.latlng.lat, data.latlng.lng]
+    },
+    zoomMap(zoomSize) {
+      this.zoomSize = zoomSize
     }
   }
 
@@ -126,13 +123,13 @@ export default {
 @import "../node_modules/leaflet/dist/leaflet.css";
 .province {
   margin-top: 50px;
-  box-shadow: 0 5px 10px 4px rgba(253, 200, 10, .4);
+  box-shadow: 0 3px 6px 2px #17a2b8;
   color: #fff;
 }
 .map {
-  box-shadow: 0 5px 10px 4px rgba(253, 200, 10, .4)
+  box-shadow: 0 3px 6px 2px #17a2b8;
 }
-.timeline {
+.timeline { 
   list-style-type: none;
   position: relative;
 }
@@ -156,35 +153,17 @@ export default {
     position: absolute;
     border-radius: 50%;
     border: 3px solid #22c0e8;
-    left: -40px;
+    left: 20px;
     width: 20px;
     height: 20px;
     z-index: 400;
 }
-.timeline > li:after {
-    content: ' ';
-    display: inline-block;
-    position: absolute;
-    border-left: 10px solid #333232;
-    border-top: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid #333232;
-    top: 12px;
-    left: -10px;
-    transform: rotate(45deg);
-    width: 20px;
-    height: 20px;
-    z-index: 400;
-}
-.timeline--item {
-  background: #333232;
-  padding: 10px;
-  position: relative;
-}
-.timeline--date {
-  font-size: 20px;
-  padding: 5px 0;
-  margin-bottom: 10px;
-  border-bottom: 1px solid rgb(255, 255, 255, .5);
+.map--icon-text {
+  font-size: 14px;
+  text-shadow: 0 0 10px #ffee06, 0 0 10px #48ff00;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>
