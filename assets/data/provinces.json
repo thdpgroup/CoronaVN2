@@ -36,7 +36,7 @@
       "name": "Cần Thơ", "id": "12", "case": "2", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [10.066,105.540]
   },
   {
-      "name": "Cà Mau", "id": "13", "case": "100", "recovered": "0", "death": "0", "new": "0", "color": "1", "markerLocation": [9.048, 105.051]
+      "name": "Cà Mau", "id": "13", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "1", "markerLocation": [9.048, 105.051]
   },
   {
       "name": "Cao Bằng", "id": "14", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [22.726, 106.183]
@@ -78,13 +78,13 @@
       "name": "Hà Giang", "id": "26", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [22.812, 104.996]
   },
   {
-      "name": "Hà Nội", "id": "27", "case": "110", "recovered": "41", "death": "0", "new": "0", "color": "0", "markerLocation": [20.971698530475734, 105.73242187500001]
+      "name": "Hà Nội", "id": "27", "case": "111", "recovered": "41", "death": "0", "new": "0", "color": "0", "markerLocation": [20.971698530475734, 105.73242187500001]
   },
   {
       "name": "Hà Nam", "id": "28", "case": "2", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [20.5351, 105.9631]
   },
   {
-      "name": "Hà Tĩnh", "id": "29", "case": "1", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [18.291949733550336, 105.74340820312501]
+      "name": "Hà Tĩnh", "id": "29", "case": "2", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [18.291949733550336, 105.74340820312501]
   },
   {
       "name": "Hoà Bình", "id": "30", "case": "0", "recovered": "0", "death": "0", "new": "0", "color": "0", "markerLocation": [20.653346148076064, 105.35888671875]

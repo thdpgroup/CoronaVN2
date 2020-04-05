@@ -13,7 +13,7 @@
       </l-choropleth-layer>
       <l-tile-layer :url="url" :attribution="tileOptions.attribution" :noWrap="true"></l-tile-layer>
       <template v-for="province in provinces" >
-        <l-marker  v-if="province.markerLocation.length > 0"
+        <l-marker  v-if="province.case > 0"
         :lat-lng="province.markerLocation" :key="province.id" @click="markerChanged(province.id)">
           <l-icon class="map--icon">
             <p class="map--icon-text font-weight-bold" v-show="zoomSize>6">{{ province.case }}</p>
@@ -24,11 +24,12 @@
     </l-map>
     <div class="card p-3 bg-dark province" v-if="currentProvince">
       <h2 class="card-title" v-html="currentProvince.name" v-if="currentProvince.name"></h2>
-      <h3 v-if="String(currentProvince.new)&&String(currentProvince.recovered)&&currentProvince.date">Số ca nhiễm mới: {{currentProvince.new}}, bình phục: {{checkedContent.recovered}} (04/02/2020)</h3>
-			<ul class="timeline mt-4" v-if="currentTimeline">
-				<li v-for="timeline in currentTimeline.patients" :key="timeline.id" :id="timeline.id" class="timeline--item">
+      <h3 v-if="String(currentProvince.new)&&String(currentProvince.recovered)&&currentProvince.date">Số ca nhiễm mới: {{currentProvince.new}}, bình phục: {{checkedContent.recovered}} {{$moment.format('L')}}</h3>
+			<ul class="timeline mt-4" v-if="currentTimeline && currentTimeline.length">
+				<li v-for="timeline in currentTimeline" :key="timeline.id" :id="timeline.id" class="timeline--item">
+          <p v-html="timeline.date" class="timeline--date"></p>
 					<p v-html="timeline.report" class="d-inline"></p>
-          <a class="text-warning" :href="timeline.url" :target="timeline.isExternalLink&&'_blank'" v-if="timeline.isSeeMore">Xem thêm</a>
+          <!-- <a class="text-warning" :href="timeline.url" :target="timeline.isExternalLink&&'_blank'" v-if="timeline.isSeeMore">Xem thêm</a> -->
 				</li>
 			</ul>
     </div>
@@ -58,7 +59,7 @@ export default {
   data() {
     return {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      timelineStore: null,
+      timelineStore,
       map_vn,
       colorScale: ["ffc10770", "f10f0f", "ffffff"],
       value: {
@@ -99,8 +100,8 @@ export default {
     mapReady(data) {
     },
     clickLayer(data) {
-      this.currentProvince = this.provinces.find(province => province.id === data.feature.properties.id)
-      this.currentTimeline = timelineStore.find(patient => patient.id === data.feature.properties.id)
+      this.currentProvince = this.provinces.find(province => Number(province.id, 10) == Number(data.feature.properties.id, 10));
+      this.currentTimeline = timelineStore.filter(patient => (Number(patient.cityId, 10) == Number(data.feature.properties.id, 10) || patient.cityId == -1));
     },
     updateLatLng(data) {
       this.center = [data.latlng.lat, data.latlng.lng]
@@ -110,7 +111,7 @@ export default {
     },
     markerChanged(id) {
       this.currentProvince = this.provinces.find(province => Number(province.id, 10) === Number(id, 10))
-      this.currentTimeline = timelineStore.find(patient => Number(patient.id, 10) === Number(id, 10))
+      this.currentTimeline = timelineStore.find(patient => Number(patient.cityId, 10) === Number(id, 10) || patient.cityId == -1 )
     }
   },
   mounted() {
@@ -157,6 +158,10 @@ export default {
     width: 20px;
     height: 20px;
     z-index: 400;
+}
+.timeline--date {
+  font-size: 18px;
+  font-weight: 700;
 }
 .map--icon-text {
   font-size: 14px;
