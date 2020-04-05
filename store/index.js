@@ -21,7 +21,9 @@ export const actions = {
     try {
       const res = await axios.get('api/city/getprovinces');
       res.data.data.forEach(function(item) {
-        if(item.case > 0) item.color = 1;
+        if(item.case > 0) {
+          item.color = item.case > 20 ? 2 : 1;
+        }
       });
 
       commit('saveProvinces', res.data.data);

@@ -66,7 +66,7 @@ export default {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       timelineStore,
       map_vn,
-      colorScale: ["ffc10770", "d32a3aad", "ffffff"],
+      colorScale: ["ffc10770", "d32a3aad", "f10f0f", "ffffff"],
       value: {
         key: "case",
         keyColor: "color",
