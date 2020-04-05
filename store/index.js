@@ -19,8 +19,12 @@ export const actions = {
   async fetchProvinces({commit, state}) {
     if(Array.isArray(state.provinces) && state.provinces.length) return state.provinces
     try {
-      const res = await axios.get('api/city/getprovinces')
-      commit('saveProvinces', res.data.data)
+      const res = await axios.get('api/city/getprovinces');
+      res.data.data.forEach(function(item) {
+        if(item.case > 0) item.color = 1;
+      });
+
+      commit('saveProvinces', res.data.data);
       return res
     } catch(e) {
       throw e
