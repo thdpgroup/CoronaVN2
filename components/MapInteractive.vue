@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-    <l-map ref="mapRef" @ready="mapReady" :center="center" :zoom="zoomSize" style="height: 500px;" @click="updateLatLng" @update:zoom="zoomMap" v-if="provinces">
+    <l-map ref="mapRef" @ready="mapReady" :center="center" :zoom="zoomSize" style="height: 600px;" @click="updateLatLng" @update:zoom="zoomMap" v-if="provinces">
       <l-choropleth-layer :data="provinces" titleKey="name" idKey="id" :value="value" geojsonIdKey="id" :geojson="map_vn" 
         :colorScale="colorScale" 
         :strokeColor="strokeColor" 
@@ -21,6 +21,13 @@
           <l-popup><div class="text-center font-weight-bold" v-html="popupContent"></div></l-popup>
         </l-marker>
       </template>
+
+      <l-control position="bottomleft" >
+        <button  @click="switchNSHandler">
+        {{'Xem ' + zoomControl.buttonCaption}}
+        </button>
+      </l-control>
+
     </l-map>
     <div class="card p-3 bg-dark province" v-if="currentProvince">
       <h2 class="card-title" v-html="currentProvince.name" v-if="currentProvince.name"></h2>
@@ -42,16 +49,14 @@ import ChoroplethLayer from '../plugins/Choropleth'
 
 import map_vn from '../assets/data/map_vn.json'
 import timelineStore from '../assets/data/patients.json'
-import {LMap, LTileLayer, LPopup, LMarker, LLayerGroup} from 'vue2-leaflet'
+import {LMap, LTileLayer, LPopup, LMarker, LLayerGroup, LControl} from 'vue2-leaflet'
 import {mapActions, mapState} from 'vuex'
 
 export default {
   name: "app",
   components: { 
     LMap,
-    LTileLayer,
-    LPopup,
-    LMarker, LLayerGroup,
+    LTileLayer, LPopup, LMarker, LLayerGroup, LControl,
     'l-info-control': InfoControl, 
     'l-reference-chart': ReferenceChart, 
     'l-choropleth-layer': ChoroplethLayer
@@ -82,8 +87,14 @@ export default {
       },
       currentProvince: null,
       currentTimeline: null,
-      center: [16.003575733881327,105.38085937500001],
-      zoomSize: 5
+      center: [11.851,106.765],
+      zoomSize: 7,
+      zoomControl: {
+        isNorth: false,
+        buttonCaption: "Miền Bắc",
+        centerAtSouth: [11.851,106.765],
+        centerAtNorth: [20.018,105.612],
+      }
     }
   },
   computed: {
@@ -112,6 +123,11 @@ export default {
     markerChanged(id) {
       this.currentProvince = this.provinces.find(province => Number(province.id, 10) === Number(id, 10))
       this.currentTimeline = timelineStore.find(patient => Number(patient.cityId, 10) === Number(id, 10) || patient.cityId == -1 )
+    },
+    switchNSHandler(){
+      this.zoomControl.isNorth = !this.zoomControl.isNorth;
+      this.zoomControl.buttonCaption = this.zoomControl.isNorth ? "Miền Nam" : "Miền Bắc";
+      this.center = this.zoomControl.isNorth ?  this.zoomControl.centerAtNorth :  this.zoomControl.centerAtSouth;
     }
   },
   mounted() {
