@@ -92,7 +92,7 @@ export default {
       return this.center
     },
     popupContent() {
-      return this.currentProvince && `Tổng số ca: <span class="text-danger font-weight-bold">${this.currentProvince.case||''}</span> số ca hồi phục: <span class="text-warning font-weight-bold">${this.currentProvince.recovered||''}</span> chết: <span class="text-info font-weight-bold">${this.currentProvince.death}</span>`
+      return this.currentProvince && `Tổng số ca: <span class="text-danger font-weight-bold">${this.currentProvince.case||''}</span>, hồi phục: <span class="text-info font-weight-bold">${this.currentProvince.recovered||''}</span> chết: <span class="text-warning font-weight-bold">${this.currentProvince.death}</span>`
     }
   },
   methods: {
