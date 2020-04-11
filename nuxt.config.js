@@ -66,5 +66,8 @@ module.exports = {
   },
   serverMiddleware: [
     '~/server/node/api.index.js'
-  ]
+  ],
+  server: {
+    port: 3000,
+  }
 }
