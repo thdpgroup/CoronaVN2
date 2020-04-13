@@ -77,22 +77,14 @@ const getProvinces = async function getProvinces(req, res){
 }
 module.exports.getProvinces = getProvinces;  
 
-var GetData = {
-    getProvinces() {
-        fs.exists(provincesJsonPath, function(exists) {
-            if(exists){
-                fs.readFile(provincesJsonPath, 'utf8', function readFileCallback(err, data){
-                    if (err){ console.log(err);
-                    } else {
-                    var content = data;
-                    var obj = JSON.parse(content);
-                    console.log(obj);
-                    return obj;
-                }});
-            }
-      });
-    }
+const writeFile = async function writeFile(req, res) {
+    var data = JSON.stringify(req.body)
+    fs.writeFile(provincesJsonPath, data, 'utf8', function(err,result){
+        if(err) console.log('error', err);
+    }); 
+    return ResponseSuccess(res, { data : "Update successfully"})
 }
-module.exports.GetData = GetData; 
+
+module.exports.writeFile = writeFile;
 
 

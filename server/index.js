@@ -22,6 +22,10 @@ async function start() {
     const builder = new Builder(nuxt)
     await builder.build()
   }
+  app.use(express.json({
+    limit: '2mb',
+    extended : true
+  }))
   // Give nuxt middleware to express
   app.use(nuxt.render)
   // Listen the server

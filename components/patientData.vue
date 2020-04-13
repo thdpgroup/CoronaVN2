@@ -3,24 +3,23 @@
     <div id="app" class="container background-color">
       
       <div style="padding-bottom:10px">
-        Total : {{ totalCase }} - Recovered : {{ totalRecovered }} - death :
-        {{ totalDeath }}
+      
       </div>
       <div>
         <v-data-table
           class="elevation-1"
           :items="Details"
           :headers="DetailHeader"
-          sort-by="case"
+          sort-by="id"
           sort-desc="true"
           items-per-page="-1"
         >
           <template v-slot:top>
             <v-toolbar flat color="white">
-              <v-dialog v-model="dialog" max-width="500px">
+              <v-dialog v-model="dialog" max-width="700px">
                 <v-card>
                   <v-card-title>
-                    <span class="headline">{{ editedItem.name }}</span>
+                    <span class="headline">{{ editedItem.id }}</span>
                   </v-card-title>
 
                   <v-card-text>
@@ -28,40 +27,35 @@
                       <v-row>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
-                            v-model="editedItem.name"
-                            label="name"
+                            v-model="editedItem.id"
+                            label="id"
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
-                            v-model="editedItem.case"
-                            label="case"
+                            v-model="editedItem.tag"
+                            label="tag"
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
-                            v-model="editedItem.recovered"
-                            label="recovered"
+                            v-model="editedItem.date"
+                            label="date"
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
-                            v-model="editedItem.death"
-                            label="death"
+                            v-model="editedItem.cityId"
+                            label="cityId"
                           ></v-text-field>
                         </v-col>
-                        <v-col cols="12" sm="6" md="4">
-                          <v-text-field
-                            v-model="editedItem.new"
-                            label="new"
-                          ></v-text-field>
+                        <v-col sm="12">
+                          <v-textarea
+                            v-model="editedItem.report"
+                            label="report"
+                          ></v-textarea>
                         </v-col>
-                        <v-col cols="12" sm="6" md="4">
-                          <v-text-field
-                            v-model="editedItem.color"
-                            label="color"
-                          ></v-text-field>
-                        </v-col>
+                      
                       </v-row>
                     </v-container>
                   </v-card-text>
@@ -90,7 +84,7 @@
 
 <script>
 
-import provinceService from "@/store/provinces-service.js"
+import patientService from "@/store/patients-service.js"
 
 export default {
   data() {
@@ -106,55 +100,38 @@ export default {
           value: 'id'
         },
         {
-          text: 'name',
-          value: 'name'
+          text: 'tag',
+          value: 'tag'
         },
         {
-          text: 'case',
-          value: 'case'
+          text: 'date',
+          value: 'date'
         },
         {
-          text: 'recovered',
-          value: 'recovered'
+          text: 'cityId',
+          value: 'cityId'
         },
         {
-          text: 'death',
-          value: 'death'
+          text: 'report',
+          value: 'report'
         },
-        {
-          text: 'new',
-          value: 'new'
-        },
-        {
-          text: 'color',
-          value: 'color'
-        },
-        {
-          text: 'markerLocation',
-          value: 'markerLocation'
-        },
+       
         { text: 'Actions', value: 'actions' }
       ],
       editedIndex: -1,
       editedItem: {
         id: '',
-        name: '',
-        case: '',
-        recovered: '',
-        death: '',
-        new: '',
-        color: '',
-        markerLocation: []
+        tag: '',
+        date: '',
+        cityId: '',
+        report: ''       
       },
       defaultItem: {
-        id: '',
-        name: '',
-        case: '',
-        recovered: '',
-        death: '',
-        new: '',
-        color: '',
-        markerLocation: []
+       id: '',
+        tag: '',
+        date: '',
+        cityId: '',
+        report: ''  
       }
     }
   },
@@ -192,23 +169,17 @@ export default {
       } else {
         this.Details.push(this.editedItem)
       }
-      provinceService.cityWriteFile(this.Details)
+      patientService.writeFile(this.Details)
       this.count()
       this.close()
     },
     getData() {
       var that = this;
-      provinceService.getProvinces()
+      patientService.getPatients()
       .then(function(response){
-        that.Details = response.data.data
-        that.count()
+        that.Details = response.data.data   
         
       })
-    },
-    count () {
-         this.totalCase = this.sum(this.Details, 'case')
-    this.totalRecovered = this.sum(this.Details, 'recovered')
-    this.totalDeath = this.sum(this.Details, 'death')
     }
   }
 }
