@@ -29,6 +29,13 @@
       </l-control>
 
     </l-map>
+    <vue-bootstrap-typeahead 
+      @hit="searchProvince"
+      :serializer="s => s.name"
+      :data="provinces"
+      placeholder="Tìm kiếm tỉnh thành..."
+      v-if="provinces"
+    />
     <div class="card p-3 bg-dark province" v-if="currentProvince">
       <h2 class="card-title" v-html="currentProvince.name" v-if="currentProvince.name"></h2>
       <h3 v-if="String(currentProvince.new)&&String(currentProvince.recovered)&&currentProvince.date">Số ca nhiễm mới: {{currentProvince.new}}, bình phục: {{checkedContent.recovered}} {{$moment.format('L')}}</h3>
@@ -45,12 +52,14 @@
 
 <script>
 import { InfoControl, ReferenceChart } from 'vue-choropleth'
-import ChoroplethLayer from '../plugins/Choropleth'
-
-import map_vn from '../assets/data/map_vn.json'
-import timelineStore from '../assets/data/patients.json'
 import {LMap, LTileLayer, LPopup, LMarker, LLayerGroup, LControl} from 'vue2-leaflet'
 import {mapActions, mapState} from 'vuex'
+import VueBootstrapTypeahead from 'vue-bootstrap-typeahead'
+
+import ChoroplethLayer from '../plugins/Choropleth'
+import map_vn from '../assets/data/map_vn.json'
+import timelineStore from '../assets/data/patients.json'
+
 
 export default {
   name: "app",
@@ -59,7 +68,8 @@ export default {
     LTileLayer, LPopup, LMarker, LLayerGroup, LControl,
     'l-info-control': InfoControl, 
     'l-reference-chart': ReferenceChart, 
-    'l-choropleth-layer': ChoroplethLayer
+    'l-choropleth-layer': ChoroplethLayer,
+    VueBootstrapTypeahead
   },
   data() {
     return {
@@ -105,16 +115,23 @@ export default {
     },
     popupContent() {
       return this.currentProvince && `Tổng số ca: <span class="text-danger font-weight-bold">${this.currentProvince.case||''}</span>, hồi phục: <span class="text-info font-weight-bold">${this.currentProvince.recovered||''}</span> chết: <span class="text-warning font-weight-bold">${this.currentProvince.death}</span>`
-    }
+    },
   },
   methods: {
     ...mapActions(['fetchProvinces']),
     mapReady(data) {
       this.zoomControl.zoomSizeDefault = this.zoomSize;
     },
+    updateDataMap(id) {
+      this.currentProvince = this.provinces.find(province => {
+        return Number(province.id, 10) === Number(id, 10)
+      });
+      this.currentTimeline = timelineStore.filter(patient => {
+        return (Number(patient.cityId, 10) === Number(id, 10) || Number(patient.cityId, 10) === -1)
+      });
+    },
     clickLayer(data) {
-      this.currentProvince = this.provinces.find(province => Number(province.id, 10) == Number(data.feature.properties.id, 10));
-      this.currentTimeline = timelineStore.filter(patient => (Number(patient.cityId, 10) == Number(data.feature.properties.id, 10) || patient.cityId == -1));
+      this.updateDataMap(data.feature.properties.id)
     },
     // updateLatLng(data) {
     //   this.center = [data.latlng.lat, data.latlng.lng]
@@ -123,14 +140,19 @@ export default {
       this.zoomSize = zoomSize
     },
     markerChanged(id) {
-      this.currentProvince = this.provinces.find(province => Number(province.id, 10) === Number(id, 10))
-      this.currentTimeline = timelineStore.find(patient => Number(patient.cityId, 10) === Number(id, 10) || patient.cityId == -1 )
+      this.updateDataMap(id)
     },
     switchNSHandler(){
       this.zoomSize = this.zoomControl.zoomSizeDefault;
       this.zoomControl.isNorth = !this.zoomControl.isNorth;
       this.zoomControl.buttonCaption = this.zoomControl.isNorth ? "Miền Nam" : "Miền Bắc";
       this.center = this.zoomControl.isNorth ?  this.zoomControl.centerAtNorth :  this.zoomControl.centerAtSouth;
+    },
+    searchProvince($event) {
+      this.currentProvince = $event;
+      this.currentTimeline = timelineStore.filter(patient => {
+        return Number(patient.cityId, 10) === Number($event.id, 10) || Number(patient.cityId, 10) === -1
+      })
     }
   },
   mounted() {
