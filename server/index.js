@@ -27,6 +27,7 @@ async function start() {
     extended : true
   }))
   // Give nuxt middleware to express
+  app.use(cors())
   app.use(nuxt.render)
   // Listen the server
   app.listen(port, host)
