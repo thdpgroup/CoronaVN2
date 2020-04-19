@@ -28,6 +28,7 @@
     "nuxt-leaflet": "0.0.21",
     "parse-error": "^0.2.0",
     "pg": "^8.0.0",
+    "vue-bootstrap-typeahead": "^0.2.6",
     "vue-choropleth": "^0.3.1",
     "vue2-leaflet": "^2.5.2"
   },
