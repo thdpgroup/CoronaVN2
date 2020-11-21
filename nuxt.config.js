@@ -1,5 +1,6 @@
 module.exports = {
   mode: 'spa',
+  telemetry: false,
   /*
    ** Headers of the page
    */
@@ -28,8 +29,6 @@ module.exports = {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    {src: './node_modules/vue2-leaflet/dist/vue2-leaflet.min.js', ssr: false },
-    {src: './node_modules/leaflet/dist/leaflet.js', ssr: false },
   ],
   /*
    ** Nuxt.js dev-modules
@@ -49,7 +48,6 @@ module.exports = {
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    "nuxt-leaflet",
     '@nuxtjs/vuetify',
     '@nuxtjs/moment'
   ],
@@ -66,5 +64,9 @@ module.exports = {
   },
   serverMiddleware: [
     '~/server/node/api.index.js'
-  ]
+  ],
+  server: {
+    port: 4000, // default: 3000
+    host: '0.0.0.0' // default: localhost
+  }
 }

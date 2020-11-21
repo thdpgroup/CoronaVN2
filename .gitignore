@@ -95,3 +95,4 @@ bin
 /vnGeoJson/.vs/vnGeoJson/v15/Server/sqlite3/*.ide
 /vnGeoJson/.vs/vnGeoJson/v15/Server/sqlite3/*.ide-shm
 /vnGeoJson/.vs/vnGeoJson/v15/Server/sqlite3/*.ide-wal
+package-lock.json

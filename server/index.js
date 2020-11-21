@@ -1,9 +1,10 @@
 const express = require('express')
 const consola = require('consola')
+const cors = require('cors')
 const { Nuxt, Builder } = require('nuxt')
 const app = express()
 
-
+app.use(cors());
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'
@@ -24,6 +25,11 @@ async function start() {
   }
   // Give nuxt middleware to express
   app.use(nuxt.render)
+
+  app.get('api/templates', function(req, res) {
+    return res.send('GET HTTP method on user resource');
+  })
+
   // Listen the server
   app.listen(port, host)
   consola.ready({
